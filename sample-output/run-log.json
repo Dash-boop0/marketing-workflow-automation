@@ -1,0 +1,3089 @@
+{
+  "tool": "marketing-workflow-automation",
+  "schemaVersion": 1,
+  "note": "Synthetic demo data. Messaging is mocked: no message was sent.",
+  "runId": "R-b84402092617",
+  "generatedAt": "2026-10-20T09:00:00.000Z",
+  "runDate": "2026-10-20",
+  "input": {
+    "name": "leads.csv",
+    "sha256": "1c63d9805394da9915c60e6953ec1c58176f4596ef13cfe1a4a439cc8f88db23",
+    "dataRows": 61
+  },
+  "rules": {
+    "version": "1.0",
+    "sha256": "55df701cbb7e394dd87d8c744d9e57b2f910d5d7cb7e81347b69f8fb3240d1d6",
+    "skipWeekends": true
+  },
+  "fatal": null,
+  "counts": {
+    "rowsRead": 61,
+    "blankRows": 1,
+    "rejectedValidation": 7,
+    "rowsWithWarnings": 12,
+    "warningsTotal": 13,
+    "duplicates": 7,
+    "uniqueLeads": 47,
+    "tasksGenerated": 47,
+    "tasksCreated": 47,
+    "tasksAlreadyExisted": 0,
+    "messagesMocked": 40,
+    "messagesSkipped": 7,
+    "byCategory": {
+      "Enterprise decision maker": 6,
+      "Warm inbound": 12,
+      "Referral / partner": 7,
+      "Low fit": 3,
+      "Event follow-up": 7,
+      "General nurture": 6,
+      "Mid-market prospect": 6
+    },
+    "byPriority": {
+      "high": 13,
+      "medium": 25,
+      "low": 9
+    },
+    "rejectionsByCode": {
+      "invalid_email": 3,
+      "missing_contact": 1,
+      "missing_name": 1,
+      "missing_company": 1,
+      "malformed_row": 1,
+      "duplicate_email": 5,
+      "duplicate_name_company": 2
+    },
+    "warningsByCode": {
+      "invalid_opt_in": 1,
+      "unknown_country": 1,
+      "invalid_date": 2,
+      "role_email": 1,
+      "missing_email": 1,
+      "invalid_phone": 1,
+      "unknown_source": 2,
+      "future_date": 1,
+      "invalid_company_size": 1,
+      "phone_without_country": 1,
+      "short_row": 1
+    },
+    "tasksByDueDate": {
+      "2026-10-21": 13,
+      "2026-10-23": 25,
+      "2026-10-29": 9
+    }
+  },
+  "outputs": {
+    "leads.csv": 47,
+    "rejected.csv": 14,
+    "tasks.csv": 47,
+    "mock-outbox.csv": 40
+  },
+  "entries": [
+    {
+      "seq": 1,
+      "step": "ingest",
+      "record_id": "",
+      "result": "ok",
+      "message": "Read 61 data row(s) from leads.csv (12 columns; mapped: first_name, last_name, email, phone, company, job_title, company_size, country, source, created_at, opt_in, notes); skipped 1 blank row(s).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 2,
+      "step": "validate",
+      "record_id": "row-2",
+      "result": "ok",
+      "message": "Row 2 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 3,
+      "step": "validate",
+      "record_id": "row-3",
+      "result": "ok",
+      "message": "Row 3 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 4,
+      "step": "validate",
+      "record_id": "row-4",
+      "result": "ok",
+      "message": "Row 4 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 5,
+      "step": "validate",
+      "record_id": "row-5",
+      "result": "ok",
+      "message": "Row 5 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 6,
+      "step": "validate",
+      "record_id": "row-6",
+      "result": "ok",
+      "message": "Row 6 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 7,
+      "step": "validate",
+      "record_id": "row-7",
+      "result": "reject",
+      "message": "Row 7 rejected: Email syntax is invalid: \"ethan.brooks@example\" (domain has no dot (e.g. example.com))",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 8,
+      "step": "validate",
+      "record_id": "row-8",
+      "result": "ok",
+      "message": "Row 8 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 9,
+      "step": "validate",
+      "record_id": "row-9",
+      "result": "ok",
+      "message": "Row 9 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 10,
+      "step": "validate",
+      "record_id": "row-10",
+      "result": "warn",
+      "message": "Row 10 accepted with warning(s): opt_in value not recognised (treated as \"unknown\"; no mock email): \"maybe\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 11,
+      "step": "validate",
+      "record_id": "row-11",
+      "result": "reject",
+      "message": "Row 11 rejected: No usable email or phone",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 12,
+      "step": "validate",
+      "record_id": "row-12",
+      "result": "ok",
+      "message": "Row 12 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 13,
+      "step": "validate",
+      "record_id": "row-13",
+      "result": "ok",
+      "message": "Row 13 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 14,
+      "step": "validate",
+      "record_id": "row-14",
+      "result": "ok",
+      "message": "Row 14 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 15,
+      "step": "validate",
+      "record_id": "row-15",
+      "result": "warn",
+      "message": "Row 15 accepted with warning(s): Country not recognised (kept as written, no calling code applied): \"Nigeria\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 16,
+      "step": "validate",
+      "record_id": "row-16",
+      "result": "ok",
+      "message": "Row 16 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 17,
+      "step": "validate",
+      "record_id": "row-17",
+      "result": "ok",
+      "message": "Row 17 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 18,
+      "step": "validate",
+      "record_id": "row-19",
+      "result": "ok",
+      "message": "Row 19 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 19,
+      "step": "validate",
+      "record_id": "row-20",
+      "result": "reject",
+      "message": "Row 20 rejected: Email syntax is invalid: \"zara@@example.com\" (more than one @)",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 20,
+      "step": "validate",
+      "record_id": "row-21",
+      "result": "reject",
+      "message": "Row 21 rejected: Both first_name and last_name are empty",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 21,
+      "step": "validate",
+      "record_id": "row-22",
+      "result": "reject",
+      "message": "Row 22 rejected: company is empty",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 22,
+      "step": "validate",
+      "record_id": "row-23",
+      "result": "warn",
+      "message": "Row 23 accepted with warning(s): created_at is not a valid date in an accepted format (cleared): month 13 does not exist",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 23,
+      "step": "validate",
+      "record_id": "row-24",
+      "result": "warn",
+      "message": "Row 24 accepted with warning(s): created_at is not a valid date in an accepted format (cleared): day 31 does not exist in 2026-02",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 24,
+      "step": "validate",
+      "record_id": "row-25",
+      "result": "warn",
+      "message": "Row 25 accepted with warning(s): Role-based mailbox (e.g. info@, sales@): info@example.com",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 25,
+      "step": "validate",
+      "record_id": "row-26",
+      "result": "warn",
+      "message": "Row 26 accepted with warning(s): No email; phone-only lead (no mock email will be generated)",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 26,
+      "step": "validate",
+      "record_id": "row-27",
+      "result": "ok",
+      "message": "Row 27 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 27,
+      "step": "validate",
+      "record_id": "row-28",
+      "result": "warn",
+      "message": "Row 28 accepted with warning(s): Phone is not a valid number (cleared): \"555-01\" (6 digits (expected 7-15)) | Source not recognised (mapped to \"Other\"): \"Podcast\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 28,
+      "step": "validate",
+      "record_id": "row-29",
+      "result": "ok",
+      "message": "Row 29 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 29,
+      "step": "validate",
+      "record_id": "row-30",
+      "result": "ok",
+      "message": "Row 30 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 30,
+      "step": "validate",
+      "record_id": "row-31",
+      "result": "ok",
+      "message": "Row 31 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 31,
+      "step": "validate",
+      "record_id": "row-32",
+      "result": "ok",
+      "message": "Row 32 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 32,
+      "step": "validate",
+      "record_id": "row-33",
+      "result": "ok",
+      "message": "Row 33 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 33,
+      "step": "validate",
+      "record_id": "row-34",
+      "result": "ok",
+      "message": "Row 34 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 34,
+      "step": "validate",
+      "record_id": "row-35",
+      "result": "warn",
+      "message": "Row 35 accepted with warning(s): Source not recognised (mapped to \"Other\"): \"Instagram\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 35,
+      "step": "validate",
+      "record_id": "row-36",
+      "result": "ok",
+      "message": "Row 36 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 36,
+      "step": "validate",
+      "record_id": "row-37",
+      "result": "ok",
+      "message": "Row 37 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 37,
+      "step": "validate",
+      "record_id": "row-38",
+      "result": "ok",
+      "message": "Row 38 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 38,
+      "step": "validate",
+      "record_id": "row-39",
+      "result": "ok",
+      "message": "Row 39 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 39,
+      "step": "validate",
+      "record_id": "row-40",
+      "result": "ok",
+      "message": "Row 40 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 40,
+      "step": "validate",
+      "record_id": "row-41",
+      "result": "ok",
+      "message": "Row 41 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 41,
+      "step": "validate",
+      "record_id": "row-42",
+      "result": "warn",
+      "message": "Row 42 accepted with warning(s): created_at is after the run date: 2026-11-15 is after 2026-10-20",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 42,
+      "step": "validate",
+      "record_id": "row-43",
+      "result": "ok",
+      "message": "Row 43 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 43,
+      "step": "validate",
+      "record_id": "row-44",
+      "result": "ok",
+      "message": "Row 44 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 44,
+      "step": "validate",
+      "record_id": "row-45",
+      "result": "ok",
+      "message": "Row 45 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 45,
+      "step": "validate",
+      "record_id": "row-46",
+      "result": "warn",
+      "message": "Row 46 accepted with warning(s): company_size is not a whole number (cleared): \"about 200\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 46,
+      "step": "validate",
+      "record_id": "row-47",
+      "result": "ok",
+      "message": "Row 47 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 47,
+      "step": "validate",
+      "record_id": "row-48",
+      "result": "ok",
+      "message": "Row 48 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 48,
+      "step": "validate",
+      "record_id": "row-49",
+      "result": "ok",
+      "message": "Row 49 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 49,
+      "step": "validate",
+      "record_id": "row-50",
+      "result": "ok",
+      "message": "Row 50 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 50,
+      "step": "validate",
+      "record_id": "row-51",
+      "result": "ok",
+      "message": "Row 51 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 51,
+      "step": "validate",
+      "record_id": "row-52",
+      "result": "ok",
+      "message": "Row 52 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 52,
+      "step": "validate",
+      "record_id": "row-53",
+      "result": "ok",
+      "message": "Row 53 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 53,
+      "step": "validate",
+      "record_id": "row-54",
+      "result": "ok",
+      "message": "Row 54 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 54,
+      "step": "validate",
+      "record_id": "row-55",
+      "result": "ok",
+      "message": "Row 55 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 55,
+      "step": "validate",
+      "record_id": "row-56",
+      "result": "ok",
+      "message": "Row 56 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 56,
+      "step": "validate",
+      "record_id": "row-57",
+      "result": "ok",
+      "message": "Row 57 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 57,
+      "step": "validate",
+      "record_id": "row-58",
+      "result": "ok",
+      "message": "Row 58 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 58,
+      "step": "validate",
+      "record_id": "row-59",
+      "result": "reject",
+      "message": "Row 59 rejected: Row has more non-empty fields than the header: 1 extra non-empty field(s)",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 59,
+      "step": "validate",
+      "record_id": "row-60",
+      "result": "warn",
+      "message": "Row 60 accepted with warning(s): Phone has no + prefix and country is unknown; stored as digits only: \"2025550112\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 60,
+      "step": "validate",
+      "record_id": "row-61",
+      "result": "warn",
+      "message": "Row 61 accepted with warning(s): Row has fewer fields than the header (missing trailing fields treated as empty): 6 field(s) missing",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 61,
+      "step": "validate",
+      "record_id": "row-62",
+      "result": "reject",
+      "message": "Row 62 rejected: Email syntax is invalid: \"olivia hart@example.com\" (contains a space)",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 62,
+      "step": "validate",
+      "record_id": "row-63",
+      "result": "ok",
+      "message": "Row 63 passed all checks.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 63,
+      "step": "normalise",
+      "record_id": "L-d2cd6fde948a",
+      "result": "ok",
+      "message": "Row 2 -> L-d2cd6fde948a: 2 change(s): country: \"USA\" -> \"US\"; phone: \"202-555-0101\" -> \"+12025550101\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 64,
+      "step": "normalise",
+      "record_id": "L-3ee0aeabe83a",
+      "result": "ok",
+      "message": "Row 3 -> L-3ee0aeabe83a: 7 change(s): first_name: \"liam\" -> \"Liam\"; last_name: \"o'connor\" -> \"O'Connor\"; country: \"UK\" -> \"GB\"; phone: \"01632 960011\" -> \"+441632960011\"; source: \"web form\" -> \"Website\"; created_at: \"05/10/2026\" -> \"2026-10-05\"; opt_in: \"Y\" -> \"yes\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 65,
+      "step": "normalise",
+      "record_id": "L-05cce4b24afb",
+      "result": "ok",
+      "message": "Row 4 -> L-05cce4b24afb: 2 change(s): country: \"Deutschland\" -> \"DE\"; source: \"Trade Show\" -> \"Event\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 66,
+      "step": "normalise",
+      "record_id": "L-5adee5a2d0cc",
+      "result": "ok",
+      "message": "Row 5 -> L-5adee5a2d0cc: 4 change(s): first_name: \"NOAH\" -> \"Noah\"; last_name: \"KIM\" -> \"Kim\"; country: \"United States\" -> \"US\"; phone: \"+1 202 555 0102\" -> \"+12025550102\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 67,
+      "step": "normalise",
+      "record_id": "L-5e2970b0b5d1",
+      "result": "ok",
+      "message": "Row 6 -> L-5e2970b0b5d1: 1 change(s): country: \"Canada\" -> \"CA\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 68,
+      "step": "normalise",
+      "record_id": "L-b1f126cfc22b",
+      "result": "ok",
+      "message": "Row 8 -> L-b1f126cfc22b: 3 change(s): country: \"Scotland\" -> \"GB\"; phone: \"07700 900123\" -> \"+447700900123\"; source: \"LinkedIn Ads\" -> \"LinkedIn\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 69,
+      "step": "normalise",
+      "record_id": "L-6633a8a32543",
+      "result": "ok",
+      "message": "Row 9 -> L-6633a8a32543: 2 change(s): country: \"India\" -> \"IN\"; source: \"whitepaper\" -> \"Content download\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 70,
+      "step": "normalise",
+      "record_id": "L-ca0be6ee24bb",
+      "result": "ok",
+      "message": "Row 10 -> L-ca0be6ee24bb: 2 change(s): country: \"France\" -> \"FR\"; opt_in: \"maybe\" -> \"unknown\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 71,
+      "step": "normalise",
+      "record_id": "L-f7aaa9337fb3",
+      "result": "ok",
+      "message": "Row 12 -> L-f7aaa9337fb3: 1 change(s): phone: \"202-555-0104\" -> \"+12025550104\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 72,
+      "step": "normalise",
+      "record_id": "L-d2cd6fde948a",
+      "result": "ok",
+      "message": "Row 13 -> L-d2cd6fde948a: 3 change(s): first_name: \" Ava \" -> \"Ava\"; last_name: \" Patel \" -> \"Patel\"; email: \" AVA.PATEL@EXAMPLE.COM \" -> \"ava.patel@example.com\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 73,
+      "step": "normalise",
+      "record_id": "L-b7d9fd92e70b",
+      "result": "ok",
+      "message": "Row 14 -> L-b7d9fd92e70b: 2 change(s): country: \"United Kingdom\" -> \"GB\"; phone: \"01632 960022\" -> \"+441632960022\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 74,
+      "step": "normalise",
+      "record_id": "L-f8ebac48ba64",
+      "result": "ok",
+      "message": "Row 15 -> L-f8ebac48ba64: no changes needed",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 75,
+      "step": "normalise",
+      "record_id": "L-3f401050d746",
+      "result": "ok",
+      "message": "Row 16 -> L-3f401050d746: 1 change(s): country: \"Spain\" -> \"ES\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 76,
+      "step": "normalise",
+      "record_id": "L-1a11af706d5d",
+      "result": "ok",
+      "message": "Row 17 -> L-1a11af706d5d: 2 change(s): country: \"USA\" -> \"US\"; phone: \"202-555-0105\" -> \"+12025550105\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 77,
+      "step": "normalise",
+      "record_id": "L-8c5d8c26db5e",
+      "result": "ok",
+      "message": "Row 19 -> L-8c5d8c26db5e: 1 change(s): country: \"UK\" -> \"GB\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 78,
+      "step": "normalise",
+      "record_id": "L-1dca90456de4",
+      "result": "ok",
+      "message": "Row 23 -> L-1dca90456de4: 1 change(s): created_at: \"2026-13-05\" -> \"\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 79,
+      "step": "normalise",
+      "record_id": "L-1e812d8fff9c",
+      "result": "ok",
+      "message": "Row 24 -> L-1e812d8fff9c: 1 change(s): created_at: \"31/02/2026\" -> \"\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 80,
+      "step": "normalise",
+      "record_id": "L-8a968cb9b705",
+      "result": "ok",
+      "message": "Row 25 -> L-8a968cb9b705: 2 change(s): country: \"UK\" -> \"GB\"; phone: \"01632 960033\" -> \"+441632960033\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 81,
+      "step": "normalise",
+      "record_id": "L-e701b81da314",
+      "result": "ok",
+      "message": "Row 26 -> L-e701b81da314: 1 change(s): phone: \"202-555-0107\" -> \"+12025550107\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 82,
+      "step": "normalise",
+      "record_id": "L-0dc536b43f21",
+      "result": "ok",
+      "message": "Row 27 -> L-0dc536b43f21: 2 change(s): country: \"Australia\" -> \"AU\"; phone: \"+61 491 570 156\" -> \"+61491570156\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 83,
+      "step": "normalise",
+      "record_id": "L-9b5c2679aa6c",
+      "result": "ok",
+      "message": "Row 28 -> L-9b5c2679aa6c: 2 change(s): phone: \"555-01\" -> \"\"; source: \"Podcast\" -> \"Other\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 84,
+      "step": "normalise",
+      "record_id": "L-2341ddcaf28e",
+      "result": "ok",
+      "message": "Row 29 -> L-2341ddcaf28e: 2 change(s): country: \"England\" -> \"GB\"; phone: \"07700 900789\" -> \"+447700900789\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 85,
+      "step": "normalise",
+      "record_id": "L-23028f624e7d",
+      "result": "ok",
+      "message": "Row 30 -> L-23028f624e7d: 2 change(s): country: \"Ireland\" -> \"IE\"; created_at: \"2026-10-07T14:30:00Z\" -> \"2026-10-07\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 86,
+      "step": "normalise",
+      "record_id": "L-b913e68ceeba",
+      "result": "ok",
+      "message": "Row 31 -> L-b913e68ceeba: 1 change(s): country: \"USA\" -> \"US\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 87,
+      "step": "normalise",
+      "record_id": "L-3caee32e7cb1",
+      "result": "ok",
+      "message": "Row 32 -> L-3caee32e7cb1: 1 change(s): country: \"UK\" -> \"GB\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 88,
+      "step": "normalise",
+      "record_id": "L-e06486629f4e",
+      "result": "ok",
+      "message": "Row 33 -> L-e06486629f4e: 2 change(s): country: \"USA\" -> \"US\"; phone: \"+1 (202) 555-0108\" -> \"+12025550108\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 89,
+      "step": "normalise",
+      "record_id": "L-de55ca8d9439",
+      "result": "ok",
+      "message": "Row 34 -> L-de55ca8d9439: 3 change(s): country: \"India\" -> \"IN\"; source: \"Content Download\" -> \"Content download\"; opt_in: \"1\" -> \"yes\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 90,
+      "step": "normalise",
+      "record_id": "L-b9e02d9089bd",
+      "result": "ok",
+      "message": "Row 35 -> L-b9e02d9089bd: 2 change(s): country: \"Italy\" -> \"IT\"; source: \"Instagram\" -> \"Other\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 91,
+      "step": "normalise",
+      "record_id": "L-2ef94feeb666",
+      "result": "ok",
+      "message": "Row 36 -> L-2ef94feeb666: 2 change(s): country: \"Sweden\" -> \"SE\"; opt_in: \"true\" -> \"yes\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 92,
+      "step": "normalise",
+      "record_id": "L-7c82a18c0539",
+      "result": "ok",
+      "message": "Row 37 -> L-7c82a18c0539: 2 change(s): country: \"Netherlands\" -> \"NL\"; created_at: \"2026/10/04\" -> \"2026-10-04\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 93,
+      "step": "normalise",
+      "record_id": "L-5adee5a2d0cc",
+      "result": "ok",
+      "message": "Row 38 -> L-5adee5a2d0cc: 1 change(s): country: \"USA\" -> \"US\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 94,
+      "step": "normalise",
+      "record_id": "L-e71ff6421ea6",
+      "result": "ok",
+      "message": "Row 39 -> L-e71ff6421ea6: 1 change(s): country: \"France\" -> \"FR\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 95,
+      "step": "normalise",
+      "record_id": "L-95e36d544a40",
+      "result": "ok",
+      "message": "Row 40 -> L-95e36d544a40: 3 change(s): country: \"USA\" -> \"US\"; phone: \"202-555-0109\" -> \"+12025550109\"; opt_in: \"No\" -> \"no\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 96,
+      "step": "normalise",
+      "record_id": "L-a6cde91984de",
+      "result": "ok",
+      "message": "Row 41 -> L-a6cde91984de: 2 change(s): country: \"UK\" -> \"GB\"; phone: \"01632 960044\" -> \"+441632960044\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 97,
+      "step": "normalise",
+      "record_id": "L-199518a09983",
+      "result": "ok",
+      "message": "Row 42 -> L-199518a09983: 1 change(s): country: \"UAE\" -> \"AE\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 98,
+      "step": "normalise",
+      "record_id": "L-29a671a82ecb",
+      "result": "ok",
+      "message": "Row 43 -> L-29a671a82ecb: 1 change(s): country: \"Canada\" -> \"CA\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 99,
+      "step": "normalise",
+      "record_id": "L-156cc31814f3",
+      "result": "ok",
+      "message": "Row 44 -> L-156cc31814f3: 1 change(s): phone: \"202-555-0110\" -> \"+12025550110\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 100,
+      "step": "normalise",
+      "record_id": "L-e880eddeb355",
+      "result": "ok",
+      "message": "Row 45 -> L-e880eddeb355: 1 change(s): country: \"Wales\" -> \"GB\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 101,
+      "step": "normalise",
+      "record_id": "L-16b5d11912cb",
+      "result": "ok",
+      "message": "Row 46 -> L-16b5d11912cb: 2 change(s): country: \"India\" -> \"IN\"; company_size: \"about 200\" -> \"\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 102,
+      "step": "normalise",
+      "record_id": "L-dcac209c2470",
+      "result": "ok",
+      "message": "Row 47 -> L-dcac209c2470: 1 change(s): country: \"Ireland\" -> \"IE\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 103,
+      "step": "normalise",
+      "record_id": "L-e727a9c467f9",
+      "result": "ok",
+      "message": "Row 48 -> L-e727a9c467f9: 1 change(s): country: \"Germany\" -> \"DE\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 104,
+      "step": "normalise",
+      "record_id": "L-c8d139030ad8",
+      "result": "ok",
+      "message": "Row 49 -> L-c8d139030ad8: 2 change(s): country: \"UK\" -> \"GB\"; created_at: \"15.09.2026\" -> \"2026-09-15\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 105,
+      "step": "normalise",
+      "record_id": "L-15162a4cd85f",
+      "result": "ok",
+      "message": "Row 50 -> L-15162a4cd85f: 1 change(s): country: \"Spain\" -> \"ES\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 106,
+      "step": "normalise",
+      "record_id": "L-d2d9a7acecff",
+      "result": "ok",
+      "message": "Row 51 -> L-d2d9a7acecff: 2 change(s): country: \"UK\" -> \"GB\"; phone: \"0044 1632 960055\" -> \"+441632960055\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 107,
+      "step": "normalise",
+      "record_id": "L-8db11d7a3992",
+      "result": "ok",
+      "message": "Row 52 -> L-8db11d7a3992: 1 change(s): country: \"India\" -> \"IN\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 108,
+      "step": "normalise",
+      "record_id": "L-ba1a532f5a63",
+      "result": "ok",
+      "message": "Row 53 -> L-ba1a532f5a63: 3 change(s): country: \"UK\" -> \"GB\"; phone: \"07700 900 321\" -> \"+447700900321\"; opt_in: \"\" -> \"unknown\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 109,
+      "step": "normalise",
+      "record_id": "L-16ae9bf45653",
+      "result": "ok",
+      "message": "Row 54 -> L-16ae9bf45653: 1 change(s): country: \"UAE\" -> \"AE\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 110,
+      "step": "normalise",
+      "record_id": "L-b0387ea7bdeb",
+      "result": "ok",
+      "message": "Row 55 -> L-b0387ea7bdeb: 2 change(s): country: \"Germany\" -> \"DE\"; source: \"Trade show\" -> \"Event\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 111,
+      "step": "normalise",
+      "record_id": "L-05cce4b24afb",
+      "result": "ok",
+      "message": "Row 56 -> L-05cce4b24afb: 2 change(s): email: \"SOFIA.MARTINS@example.net\" -> \"sofia.martins@example.net\"; country: \"Germany\" -> \"DE\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 112,
+      "step": "normalise",
+      "record_id": "L-31a67e1987f2",
+      "result": "ok",
+      "message": "Row 57 -> L-31a67e1987f2: 1 change(s): phone: \"202-555-0111\" -> \"+12025550111\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 113,
+      "step": "normalise",
+      "record_id": "L-0dc536b43f21",
+      "result": "ok",
+      "message": "Row 58 -> L-0dc536b43f21: 1 change(s): email: \"ELLA.NGUYEN@example.org\" -> \"ella.nguyen@example.org\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 114,
+      "step": "normalise",
+      "record_id": "L-291cc540a298",
+      "result": "ok",
+      "message": "Row 60 -> L-291cc540a298: no changes needed",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 115,
+      "step": "normalise",
+      "record_id": "L-5ff14181d5c7",
+      "result": "ok",
+      "message": "Row 61 -> L-5ff14181d5c7: 2 change(s): source: \"\" -> \"Unknown\"; opt_in: \"\" -> \"unknown\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 116,
+      "step": "normalise",
+      "record_id": "L-3caee32e7cb1",
+      "result": "ok",
+      "message": "Row 63 -> L-3caee32e7cb1: 3 change(s): email: \"Ruby.Fitzgerald@example.org\" -> \"ruby.fitzgerald@example.org\"; country: \"UK\" -> \"GB\"; phone: \"01632 960066\" -> \"+441632960066\"",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 117,
+      "step": "dedupe",
+      "record_id": "L-d2cd6fde948a",
+      "result": "skip",
+      "message": "Row 13: Duplicate of L-d2cd6fde948a (row 2, same email); merged into that record.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 118,
+      "step": "dedupe",
+      "record_id": "L-8c5d8c26db5e",
+      "result": "skip",
+      "message": "Row 19: Duplicate of L-3ee0aeabe83a (row 3, same first name, last name and company); merged into that record, filled: notes.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 119,
+      "step": "dedupe",
+      "record_id": "L-b913e68ceeba",
+      "result": "skip",
+      "message": "Row 31: Duplicate of L-d2cd6fde948a (row 2, same first name, last name and company); merged into that record, filled: opt_in (opt-out wins).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 120,
+      "step": "dedupe",
+      "record_id": "L-5adee5a2d0cc",
+      "result": "skip",
+      "message": "Row 38: Duplicate of L-5adee5a2d0cc (row 5, same email); merged into that record, filled: notes.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 121,
+      "step": "dedupe",
+      "record_id": "L-05cce4b24afb",
+      "result": "skip",
+      "message": "Row 56: Duplicate of L-05cce4b24afb (row 4, same email); merged into that record, filled: created_at.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 122,
+      "step": "dedupe",
+      "record_id": "L-0dc536b43f21",
+      "result": "skip",
+      "message": "Row 58: Duplicate of L-0dc536b43f21 (row 27, same email); merged into that record.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 123,
+      "step": "dedupe",
+      "record_id": "L-3caee32e7cb1",
+      "result": "skip",
+      "message": "Row 63: Duplicate of L-3caee32e7cb1 (row 32, same email); merged into that record, filled: phone, notes.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 124,
+      "step": "dedupe",
+      "record_id": "L-d2cd6fde948a",
+      "result": "ok",
+      "message": "Kept (row 2); absorbed 2 duplicate(s) from row(s) 13, 31.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 125,
+      "step": "dedupe",
+      "record_id": "L-3ee0aeabe83a",
+      "result": "ok",
+      "message": "Kept (row 3); absorbed 1 duplicate(s) from row(s) 19.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 126,
+      "step": "dedupe",
+      "record_id": "L-05cce4b24afb",
+      "result": "ok",
+      "message": "Kept (row 4); absorbed 1 duplicate(s) from row(s) 56.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 127,
+      "step": "dedupe",
+      "record_id": "L-5adee5a2d0cc",
+      "result": "ok",
+      "message": "Kept (row 5); absorbed 1 duplicate(s) from row(s) 38.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 128,
+      "step": "dedupe",
+      "record_id": "L-5e2970b0b5d1",
+      "result": "ok",
+      "message": "Unique (row 6).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 129,
+      "step": "dedupe",
+      "record_id": "L-b1f126cfc22b",
+      "result": "ok",
+      "message": "Unique (row 8).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 130,
+      "step": "dedupe",
+      "record_id": "L-6633a8a32543",
+      "result": "ok",
+      "message": "Unique (row 9).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 131,
+      "step": "dedupe",
+      "record_id": "L-ca0be6ee24bb",
+      "result": "ok",
+      "message": "Unique (row 10).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 132,
+      "step": "dedupe",
+      "record_id": "L-f7aaa9337fb3",
+      "result": "ok",
+      "message": "Unique (row 12).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 133,
+      "step": "dedupe",
+      "record_id": "L-b7d9fd92e70b",
+      "result": "ok",
+      "message": "Unique (row 14).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 134,
+      "step": "dedupe",
+      "record_id": "L-f8ebac48ba64",
+      "result": "ok",
+      "message": "Unique (row 15).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 135,
+      "step": "dedupe",
+      "record_id": "L-3f401050d746",
+      "result": "ok",
+      "message": "Unique (row 16).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 136,
+      "step": "dedupe",
+      "record_id": "L-1a11af706d5d",
+      "result": "ok",
+      "message": "Unique (row 17).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 137,
+      "step": "dedupe",
+      "record_id": "L-1dca90456de4",
+      "result": "ok",
+      "message": "Unique (row 23).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 138,
+      "step": "dedupe",
+      "record_id": "L-1e812d8fff9c",
+      "result": "ok",
+      "message": "Unique (row 24).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 139,
+      "step": "dedupe",
+      "record_id": "L-8a968cb9b705",
+      "result": "ok",
+      "message": "Unique (row 25).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 140,
+      "step": "dedupe",
+      "record_id": "L-e701b81da314",
+      "result": "ok",
+      "message": "Unique (row 26).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 141,
+      "step": "dedupe",
+      "record_id": "L-0dc536b43f21",
+      "result": "ok",
+      "message": "Kept (row 27); absorbed 1 duplicate(s) from row(s) 58.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 142,
+      "step": "dedupe",
+      "record_id": "L-9b5c2679aa6c",
+      "result": "ok",
+      "message": "Unique (row 28).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 143,
+      "step": "dedupe",
+      "record_id": "L-2341ddcaf28e",
+      "result": "ok",
+      "message": "Unique (row 29).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 144,
+      "step": "dedupe",
+      "record_id": "L-23028f624e7d",
+      "result": "ok",
+      "message": "Unique (row 30).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 145,
+      "step": "dedupe",
+      "record_id": "L-3caee32e7cb1",
+      "result": "ok",
+      "message": "Kept (row 32); absorbed 1 duplicate(s) from row(s) 63.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 146,
+      "step": "dedupe",
+      "record_id": "L-e06486629f4e",
+      "result": "ok",
+      "message": "Unique (row 33).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 147,
+      "step": "dedupe",
+      "record_id": "L-de55ca8d9439",
+      "result": "ok",
+      "message": "Unique (row 34).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 148,
+      "step": "dedupe",
+      "record_id": "L-b9e02d9089bd",
+      "result": "ok",
+      "message": "Unique (row 35).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 149,
+      "step": "dedupe",
+      "record_id": "L-2ef94feeb666",
+      "result": "ok",
+      "message": "Unique (row 36).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 150,
+      "step": "dedupe",
+      "record_id": "L-7c82a18c0539",
+      "result": "ok",
+      "message": "Unique (row 37).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 151,
+      "step": "dedupe",
+      "record_id": "L-e71ff6421ea6",
+      "result": "ok",
+      "message": "Unique (row 39).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 152,
+      "step": "dedupe",
+      "record_id": "L-95e36d544a40",
+      "result": "ok",
+      "message": "Unique (row 40).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 153,
+      "step": "dedupe",
+      "record_id": "L-a6cde91984de",
+      "result": "ok",
+      "message": "Unique (row 41).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 154,
+      "step": "dedupe",
+      "record_id": "L-199518a09983",
+      "result": "ok",
+      "message": "Unique (row 42).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 155,
+      "step": "dedupe",
+      "record_id": "L-29a671a82ecb",
+      "result": "ok",
+      "message": "Unique (row 43).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 156,
+      "step": "dedupe",
+      "record_id": "L-156cc31814f3",
+      "result": "ok",
+      "message": "Unique (row 44).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 157,
+      "step": "dedupe",
+      "record_id": "L-e880eddeb355",
+      "result": "ok",
+      "message": "Unique (row 45).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 158,
+      "step": "dedupe",
+      "record_id": "L-16b5d11912cb",
+      "result": "ok",
+      "message": "Unique (row 46).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 159,
+      "step": "dedupe",
+      "record_id": "L-dcac209c2470",
+      "result": "ok",
+      "message": "Unique (row 47).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 160,
+      "step": "dedupe",
+      "record_id": "L-e727a9c467f9",
+      "result": "ok",
+      "message": "Unique (row 48).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 161,
+      "step": "dedupe",
+      "record_id": "L-c8d139030ad8",
+      "result": "ok",
+      "message": "Unique (row 49).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 162,
+      "step": "dedupe",
+      "record_id": "L-15162a4cd85f",
+      "result": "ok",
+      "message": "Unique (row 50).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 163,
+      "step": "dedupe",
+      "record_id": "L-d2d9a7acecff",
+      "result": "ok",
+      "message": "Unique (row 51).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 164,
+      "step": "dedupe",
+      "record_id": "L-8db11d7a3992",
+      "result": "ok",
+      "message": "Unique (row 52).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 165,
+      "step": "dedupe",
+      "record_id": "L-ba1a532f5a63",
+      "result": "ok",
+      "message": "Unique (row 53).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 166,
+      "step": "dedupe",
+      "record_id": "L-16ae9bf45653",
+      "result": "ok",
+      "message": "Unique (row 54).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 167,
+      "step": "dedupe",
+      "record_id": "L-b0387ea7bdeb",
+      "result": "ok",
+      "message": "Unique (row 55).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 168,
+      "step": "dedupe",
+      "record_id": "L-31a67e1987f2",
+      "result": "ok",
+      "message": "Unique (row 57).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 169,
+      "step": "dedupe",
+      "record_id": "L-291cc540a298",
+      "result": "ok",
+      "message": "Unique (row 60).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 170,
+      "step": "dedupe",
+      "record_id": "L-5ff14181d5c7",
+      "result": "ok",
+      "message": "Unique (row 61).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 171,
+      "step": "categorise",
+      "record_id": "L-d2cd6fde948a",
+      "result": "ok",
+      "message": "Rule \"enterprise-decision-maker\" matched -> \"Enterprise decision maker\" (high).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 172,
+      "step": "categorise",
+      "record_id": "L-3ee0aeabe83a",
+      "result": "ok",
+      "message": "Rule \"warm-inbound\" matched -> \"Warm inbound\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 173,
+      "step": "categorise",
+      "record_id": "L-05cce4b24afb",
+      "result": "ok",
+      "message": "Rule \"enterprise-decision-maker\" matched -> \"Enterprise decision maker\" (high).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 174,
+      "step": "categorise",
+      "record_id": "L-5adee5a2d0cc",
+      "result": "ok",
+      "message": "Rule \"referral\" matched -> \"Referral / partner\" (high).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 175,
+      "step": "categorise",
+      "record_id": "L-5e2970b0b5d1",
+      "result": "ok",
+      "message": "Rule \"warm-inbound\" matched -> \"Warm inbound\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 176,
+      "step": "categorise",
+      "record_id": "L-b1f126cfc22b",
+      "result": "ok",
+      "message": "Rule \"enterprise-decision-maker\" matched -> \"Enterprise decision maker\" (high).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 177,
+      "step": "categorise",
+      "record_id": "L-6633a8a32543",
+      "result": "ok",
+      "message": "Rule \"warm-inbound\" matched -> \"Warm inbound\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 178,
+      "step": "categorise",
+      "record_id": "L-ca0be6ee24bb",
+      "result": "ok",
+      "message": "Rule \"referral\" matched -> \"Referral / partner\" (high).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 179,
+      "step": "categorise",
+      "record_id": "L-f7aaa9337fb3",
+      "result": "ok",
+      "message": "Rule \"low-fit-student\" matched -> \"Low fit\" (low).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 180,
+      "step": "categorise",
+      "record_id": "L-b7d9fd92e70b",
+      "result": "ok",
+      "message": "Rule \"event-follow-up\" matched -> \"Event follow-up\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 181,
+      "step": "categorise",
+      "record_id": "L-f8ebac48ba64",
+      "result": "ok",
+      "message": "Rule \"referral\" matched -> \"Referral / partner\" (high).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 182,
+      "step": "categorise",
+      "record_id": "L-3f401050d746",
+      "result": "ok",
+      "message": "No rule matched -> default \"General nurture\" (low).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 183,
+      "step": "categorise",
+      "record_id": "L-1a11af706d5d",
+      "result": "ok",
+      "message": "Rule \"mid-market\" matched -> \"Mid-market prospect\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 184,
+      "step": "categorise",
+      "record_id": "L-1dca90456de4",
+      "result": "ok",
+      "message": "Rule \"enterprise-decision-maker\" matched -> \"Enterprise decision maker\" (high).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 185,
+      "step": "categorise",
+      "record_id": "L-1e812d8fff9c",
+      "result": "ok",
+      "message": "Rule \"event-follow-up\" matched -> \"Event follow-up\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 186,
+      "step": "categorise",
+      "record_id": "L-8a968cb9b705",
+      "result": "ok",
+      "message": "Rule \"warm-inbound\" matched -> \"Warm inbound\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 187,
+      "step": "categorise",
+      "record_id": "L-e701b81da314",
+      "result": "ok",
+      "message": "Rule \"event-follow-up\" matched -> \"Event follow-up\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 188,
+      "step": "categorise",
+      "record_id": "L-0dc536b43f21",
+      "result": "ok",
+      "message": "Rule \"low-fit-student\" matched -> \"Low fit\" (low).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 189,
+      "step": "categorise",
+      "record_id": "L-9b5c2679aa6c",
+      "result": "ok",
+      "message": "Rule \"mid-market\" matched -> \"Mid-market prospect\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 190,
+      "step": "categorise",
+      "record_id": "L-2341ddcaf28e",
+      "result": "ok",
+      "message": "Rule \"mid-market\" matched -> \"Mid-market prospect\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 191,
+      "step": "categorise",
+      "record_id": "L-23028f624e7d",
+      "result": "ok",
+      "message": "Rule \"referral\" matched -> \"Referral / partner\" (high).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 192,
+      "step": "categorise",
+      "record_id": "L-3caee32e7cb1",
+      "result": "ok",
+      "message": "No rule matched -> default \"General nurture\" (low).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 193,
+      "step": "categorise",
+      "record_id": "L-e06486629f4e",
+      "result": "ok",
+      "message": "Rule \"enterprise-decision-maker\" matched -> \"Enterprise decision maker\" (high).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 194,
+      "step": "categorise",
+      "record_id": "L-de55ca8d9439",
+      "result": "ok",
+      "message": "No rule matched -> default \"General nurture\" (low).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 195,
+      "step": "categorise",
+      "record_id": "L-b9e02d9089bd",
+      "result": "ok",
+      "message": "No rule matched -> default \"General nurture\" (low).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 196,
+      "step": "categorise",
+      "record_id": "L-2ef94feeb666",
+      "result": "ok",
+      "message": "Rule \"warm-inbound\" matched -> \"Warm inbound\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 197,
+      "step": "categorise",
+      "record_id": "L-7c82a18c0539",
+      "result": "ok",
+      "message": "Rule \"warm-inbound\" matched -> \"Warm inbound\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 198,
+      "step": "categorise",
+      "record_id": "L-e71ff6421ea6",
+      "result": "ok",
+      "message": "Rule \"enterprise-decision-maker\" matched -> \"Enterprise decision maker\" (high).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 199,
+      "step": "categorise",
+      "record_id": "L-95e36d544a40",
+      "result": "ok",
+      "message": "Rule \"mid-market\" matched -> \"Mid-market prospect\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 200,
+      "step": "categorise",
+      "record_id": "L-a6cde91984de",
+      "result": "ok",
+      "message": "Rule \"event-follow-up\" matched -> \"Event follow-up\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 201,
+      "step": "categorise",
+      "record_id": "L-199518a09983",
+      "result": "ok",
+      "message": "Rule \"warm-inbound\" matched -> \"Warm inbound\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 202,
+      "step": "categorise",
+      "record_id": "L-29a671a82ecb",
+      "result": "ok",
+      "message": "Rule \"mid-market\" matched -> \"Mid-market prospect\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 203,
+      "step": "categorise",
+      "record_id": "L-156cc31814f3",
+      "result": "ok",
+      "message": "No rule matched -> default \"General nurture\" (low).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 204,
+      "step": "categorise",
+      "record_id": "L-e880eddeb355",
+      "result": "ok",
+      "message": "Rule \"warm-inbound\" matched -> \"Warm inbound\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 205,
+      "step": "categorise",
+      "record_id": "L-16b5d11912cb",
+      "result": "ok",
+      "message": "Rule \"referral\" matched -> \"Referral / partner\" (high).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 206,
+      "step": "categorise",
+      "record_id": "L-dcac209c2470",
+      "result": "ok",
+      "message": "Rule \"warm-inbound\" matched -> \"Warm inbound\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 207,
+      "step": "categorise",
+      "record_id": "L-e727a9c467f9",
+      "result": "ok",
+      "message": "Rule \"event-follow-up\" matched -> \"Event follow-up\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 208,
+      "step": "categorise",
+      "record_id": "L-c8d139030ad8",
+      "result": "ok",
+      "message": "Rule \"mid-market\" matched -> \"Mid-market prospect\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 209,
+      "step": "categorise",
+      "record_id": "L-15162a4cd85f",
+      "result": "ok",
+      "message": "Rule \"low-fit-student\" matched -> \"Low fit\" (low).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 210,
+      "step": "categorise",
+      "record_id": "L-d2d9a7acecff",
+      "result": "ok",
+      "message": "Rule \"referral\" matched -> \"Referral / partner\" (high).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 211,
+      "step": "categorise",
+      "record_id": "L-8db11d7a3992",
+      "result": "ok",
+      "message": "Rule \"referral\" matched -> \"Referral / partner\" (high).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 212,
+      "step": "categorise",
+      "record_id": "L-ba1a532f5a63",
+      "result": "ok",
+      "message": "Rule \"warm-inbound\" matched -> \"Warm inbound\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 213,
+      "step": "categorise",
+      "record_id": "L-16ae9bf45653",
+      "result": "ok",
+      "message": "Rule \"event-follow-up\" matched -> \"Event follow-up\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 214,
+      "step": "categorise",
+      "record_id": "L-b0387ea7bdeb",
+      "result": "ok",
+      "message": "Rule \"event-follow-up\" matched -> \"Event follow-up\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 215,
+      "step": "categorise",
+      "record_id": "L-31a67e1987f2",
+      "result": "ok",
+      "message": "Rule \"warm-inbound\" matched -> \"Warm inbound\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 216,
+      "step": "categorise",
+      "record_id": "L-291cc540a298",
+      "result": "ok",
+      "message": "Rule \"warm-inbound\" matched -> \"Warm inbound\" (medium).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 217,
+      "step": "categorise",
+      "record_id": "L-5ff14181d5c7",
+      "result": "ok",
+      "message": "No rule matched -> default \"General nurture\" (low).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 218,
+      "step": "tasks",
+      "record_id": "L-d2cd6fde948a",
+      "result": "ok",
+      "message": "Created T-5dd7804806de: Call by SDR queue (synthetic), priority high, due 2026-10-21.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 219,
+      "step": "tasks",
+      "record_id": "L-3ee0aeabe83a",
+      "result": "ok",
+      "message": "Created T-632bb89777c9: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 220,
+      "step": "tasks",
+      "record_id": "L-05cce4b24afb",
+      "result": "ok",
+      "message": "Created T-7cc15760c29e: Call by SDR queue (synthetic), priority high, due 2026-10-21.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 221,
+      "step": "tasks",
+      "record_id": "L-5adee5a2d0cc",
+      "result": "ok",
+      "message": "Created T-ba682f62867f: Call by SDR queue (synthetic), priority high, due 2026-10-21.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 222,
+      "step": "tasks",
+      "record_id": "L-5e2970b0b5d1",
+      "result": "ok",
+      "message": "Created T-0390aa373be2: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 223,
+      "step": "tasks",
+      "record_id": "L-b1f126cfc22b",
+      "result": "ok",
+      "message": "Created T-0bfd98f080b1: Call by SDR queue (synthetic), priority high, due 2026-10-21.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 224,
+      "step": "tasks",
+      "record_id": "L-6633a8a32543",
+      "result": "ok",
+      "message": "Created T-cacd3a722e37: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 225,
+      "step": "tasks",
+      "record_id": "L-ca0be6ee24bb",
+      "result": "ok",
+      "message": "Created T-5249367949a9: Call by SDR queue (synthetic), priority high, due 2026-10-21.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 226,
+      "step": "tasks",
+      "record_id": "L-f7aaa9337fb3",
+      "result": "ok",
+      "message": "Created T-4b0f812aa0a0: Add to nurture sequence by Marketing ops (synthetic), priority low, due 2026-10-29.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 227,
+      "step": "tasks",
+      "record_id": "L-b7d9fd92e70b",
+      "result": "ok",
+      "message": "Created T-44eec0a49204: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 228,
+      "step": "tasks",
+      "record_id": "L-f8ebac48ba64",
+      "result": "ok",
+      "message": "Created T-a516a45bc22d: Call by SDR queue (synthetic), priority high, due 2026-10-21.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 229,
+      "step": "tasks",
+      "record_id": "L-3f401050d746",
+      "result": "ok",
+      "message": "Created T-dd2294640b8d: Add to nurture sequence by Marketing ops (synthetic), priority low, due 2026-10-29.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 230,
+      "step": "tasks",
+      "record_id": "L-1a11af706d5d",
+      "result": "ok",
+      "message": "Created T-7336fda24ea8: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 231,
+      "step": "tasks",
+      "record_id": "L-1dca90456de4",
+      "result": "ok",
+      "message": "Created T-0a0228c80f3c: Call by SDR queue (synthetic), priority high, due 2026-10-21.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 232,
+      "step": "tasks",
+      "record_id": "L-1e812d8fff9c",
+      "result": "ok",
+      "message": "Created T-629aa0adf900: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 233,
+      "step": "tasks",
+      "record_id": "L-8a968cb9b705",
+      "result": "ok",
+      "message": "Created T-7428c2a30b1a: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 234,
+      "step": "tasks",
+      "record_id": "L-e701b81da314",
+      "result": "ok",
+      "message": "Created T-f213c53afbbb: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 235,
+      "step": "tasks",
+      "record_id": "L-0dc536b43f21",
+      "result": "ok",
+      "message": "Created T-dc2313b20fc0: Add to nurture sequence by Marketing ops (synthetic), priority low, due 2026-10-29.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 236,
+      "step": "tasks",
+      "record_id": "L-9b5c2679aa6c",
+      "result": "ok",
+      "message": "Created T-3c6fac2a4317: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 237,
+      "step": "tasks",
+      "record_id": "L-2341ddcaf28e",
+      "result": "ok",
+      "message": "Created T-be0f9fb41002: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 238,
+      "step": "tasks",
+      "record_id": "L-23028f624e7d",
+      "result": "ok",
+      "message": "Created T-0271561aa05c: Call by SDR queue (synthetic), priority high, due 2026-10-21.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 239,
+      "step": "tasks",
+      "record_id": "L-3caee32e7cb1",
+      "result": "ok",
+      "message": "Created T-d1a002b1c0a3: Add to nurture sequence by Marketing ops (synthetic), priority low, due 2026-10-29.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 240,
+      "step": "tasks",
+      "record_id": "L-e06486629f4e",
+      "result": "ok",
+      "message": "Created T-4818f3f8194f: Call by SDR queue (synthetic), priority high, due 2026-10-21.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 241,
+      "step": "tasks",
+      "record_id": "L-de55ca8d9439",
+      "result": "ok",
+      "message": "Created T-0cccd4accc38: Add to nurture sequence by Marketing ops (synthetic), priority low, due 2026-10-29.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 242,
+      "step": "tasks",
+      "record_id": "L-b9e02d9089bd",
+      "result": "ok",
+      "message": "Created T-0c4bdf524c41: Add to nurture sequence by Marketing ops (synthetic), priority low, due 2026-10-29.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 243,
+      "step": "tasks",
+      "record_id": "L-2ef94feeb666",
+      "result": "ok",
+      "message": "Created T-035b43b0473c: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 244,
+      "step": "tasks",
+      "record_id": "L-7c82a18c0539",
+      "result": "ok",
+      "message": "Created T-9f101fd7998d: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 245,
+      "step": "tasks",
+      "record_id": "L-e71ff6421ea6",
+      "result": "ok",
+      "message": "Created T-a61159013e96: Call by SDR queue (synthetic), priority high, due 2026-10-21.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 246,
+      "step": "tasks",
+      "record_id": "L-95e36d544a40",
+      "result": "ok",
+      "message": "Created T-14d888dcf77a: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 247,
+      "step": "tasks",
+      "record_id": "L-a6cde91984de",
+      "result": "ok",
+      "message": "Created T-8bb409390ac0: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 248,
+      "step": "tasks",
+      "record_id": "L-199518a09983",
+      "result": "ok",
+      "message": "Created T-8fbf543d359a: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 249,
+      "step": "tasks",
+      "record_id": "L-29a671a82ecb",
+      "result": "ok",
+      "message": "Created T-0c7e5d3d4b78: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 250,
+      "step": "tasks",
+      "record_id": "L-156cc31814f3",
+      "result": "ok",
+      "message": "Created T-13070c54b61f: Add to nurture sequence by Marketing ops (synthetic), priority low, due 2026-10-29.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 251,
+      "step": "tasks",
+      "record_id": "L-e880eddeb355",
+      "result": "ok",
+      "message": "Created T-3e920e98dcb2: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 252,
+      "step": "tasks",
+      "record_id": "L-16b5d11912cb",
+      "result": "ok",
+      "message": "Created T-76ff922e4c49: Call by SDR queue (synthetic), priority high, due 2026-10-21.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 253,
+      "step": "tasks",
+      "record_id": "L-dcac209c2470",
+      "result": "ok",
+      "message": "Created T-d669d8fe194e: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 254,
+      "step": "tasks",
+      "record_id": "L-e727a9c467f9",
+      "result": "ok",
+      "message": "Created T-85913da6708f: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 255,
+      "step": "tasks",
+      "record_id": "L-c8d139030ad8",
+      "result": "ok",
+      "message": "Created T-b97bd15670e6: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 256,
+      "step": "tasks",
+      "record_id": "L-15162a4cd85f",
+      "result": "ok",
+      "message": "Created T-77b17cd8e53e: Add to nurture sequence by Marketing ops (synthetic), priority low, due 2026-10-29.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 257,
+      "step": "tasks",
+      "record_id": "L-d2d9a7acecff",
+      "result": "ok",
+      "message": "Created T-630fc0024ecb: Call by SDR queue (synthetic), priority high, due 2026-10-21.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 258,
+      "step": "tasks",
+      "record_id": "L-8db11d7a3992",
+      "result": "ok",
+      "message": "Created T-1d68984a8adf: Call by SDR queue (synthetic), priority high, due 2026-10-21.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 259,
+      "step": "tasks",
+      "record_id": "L-ba1a532f5a63",
+      "result": "ok",
+      "message": "Created T-3061b7636940: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 260,
+      "step": "tasks",
+      "record_id": "L-16ae9bf45653",
+      "result": "ok",
+      "message": "Created T-a02b1c01462b: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 261,
+      "step": "tasks",
+      "record_id": "L-b0387ea7bdeb",
+      "result": "ok",
+      "message": "Created T-09b9f6dbd682: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 262,
+      "step": "tasks",
+      "record_id": "L-31a67e1987f2",
+      "result": "ok",
+      "message": "Created T-96459eda3cdb: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 263,
+      "step": "tasks",
+      "record_id": "L-291cc540a298",
+      "result": "ok",
+      "message": "Created T-0e21f1641798: Personalised email by SDR queue (synthetic), priority medium, due 2026-10-23.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 264,
+      "step": "tasks",
+      "record_id": "L-5ff14181d5c7",
+      "result": "ok",
+      "message": "Created T-d7b15e220002: Add to nurture sequence by Marketing ops (synthetic), priority low, due 2026-10-29.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 265,
+      "step": "message",
+      "record_id": "L-d2cd6fde948a",
+      "result": "skip",
+      "message": "No mock message: opt_in is \"no\" and requireOptIn is true.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 266,
+      "step": "message",
+      "record_id": "L-3ee0aeabe83a",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-98a97cd0b524 to liam.oconnor@example.org: \"Thanks for your interest, Liam\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 267,
+      "step": "message",
+      "record_id": "L-05cce4b24afb",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-08e4837d6459 to sofia.martins@example.net: \"Thanks for your interest, Sofia\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 268,
+      "step": "message",
+      "record_id": "L-5adee5a2d0cc",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-be2b7c046427 to noah.kim@example.com: \"Noah, you were referred to us\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 269,
+      "step": "message",
+      "record_id": "L-5e2970b0b5d1",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-38908a0a22a1 to mia.chen@example.com: \"Thanks for your interest, Mia\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 270,
+      "step": "message",
+      "record_id": "L-b1f126cfc22b",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-0edaa523a736 to isla.fraser@example.org: \"Thanks for your interest, Isla\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 271,
+      "step": "message",
+      "record_id": "L-6633a8a32543",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-85950f615bac to arjun.rao@example.com: \"Thanks for your interest, Arjun\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 272,
+      "step": "message",
+      "record_id": "L-ca0be6ee24bb",
+      "result": "skip",
+      "message": "No mock message: opt_in is \"unknown\" and requireOptIn is true.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 273,
+      "step": "message",
+      "record_id": "L-f7aaa9337fb3",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-5bfff0d707ff to emma.wilson@example.com: \"Thanks for your interest, Emma\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 274,
+      "step": "message",
+      "record_id": "L-b7d9fd92e70b",
+      "result": "skip",
+      "message": "No mock message: opt_in is \"no\" and requireOptIn is true.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 275,
+      "step": "message",
+      "record_id": "L-f8ebac48ba64",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-0c0a60972d93 to grace.okafor@example.com: \"Grace, you were referred to us\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 276,
+      "step": "message",
+      "record_id": "L-3f401050d746",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-51bf971e20da to mateo.garcia@example.net: \"Thanks for your interest, Mateo\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 277,
+      "step": "message",
+      "record_id": "L-1a11af706d5d",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-a7301f55a14a to hannah.lee@example.com: \"Thanks for your interest, Hannah\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 278,
+      "step": "message",
+      "record_id": "L-1dca90456de4",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-bded7bdaf41b to priya.sharma@example.com: \"Thanks for your interest, Priya\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 279,
+      "step": "message",
+      "record_id": "L-1e812d8fff9c",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-530eaf8d8fc5 to tom.becker@example.net: \"Great to meet you at the event, Tom\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 280,
+      "step": "message",
+      "record_id": "L-8a968cb9b705",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-625289c4b173 to info@example.com: \"Thanks for your interest, Lily\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 281,
+      "step": "message",
+      "record_id": "L-e701b81da314",
+      "result": "skip",
+      "message": "No mock message: no email address (phone-only lead).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 282,
+      "step": "message",
+      "record_id": "L-0dc536b43f21",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-823a43d50b3c to ella.nguyen@example.org: \"Thanks for your interest, Ella\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 283,
+      "step": "message",
+      "record_id": "L-9b5c2679aa6c",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-26d3e4407e08 to samuel.ortiz@example.com: \"Thanks for your interest, Samuel\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 284,
+      "step": "message",
+      "record_id": "L-2341ddcaf28e",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-543b360ef84d to amelia.clarke@example.net: \"Thanks for your interest, Amelia\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 285,
+      "step": "message",
+      "record_id": "L-23028f624e7d",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-5350c9fb9739 to ben.hughes@example.com: \"Ben, you were referred to us\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 286,
+      "step": "message",
+      "record_id": "L-3caee32e7cb1",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-5dbc2184e50b to ruby.fitzgerald@example.org: \"Thanks for your interest, Ruby\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 287,
+      "step": "message",
+      "record_id": "L-e06486629f4e",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-6d4c0cbf76cc to henry.walsh@example.com: \"Thanks for your interest, Henry\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 288,
+      "step": "message",
+      "record_id": "L-de55ca8d9439",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-2d5c1ded2ca7 to maya.singh@example.com: \"Thanks for your interest, Maya\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 289,
+      "step": "message",
+      "record_id": "L-b9e02d9089bd",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-cb5d6e74b907 to leo.rossi@example.net: \"Thanks for your interest, Leo\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 290,
+      "step": "message",
+      "record_id": "L-2ef94feeb666",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-6ff8ea400a9c to freya.lindqvist@example.org: \"Thanks for your interest, Freya\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 291,
+      "step": "message",
+      "record_id": "L-7c82a18c0539",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-bdb4ec04e1c6 to oscar.jensen@example.com: \"Thanks for your interest, Oscar\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 292,
+      "step": "message",
+      "record_id": "L-e71ff6421ea6",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-958bce719512 to isabella.moreau@example.net: \"Thanks for your interest, Isabella\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 293,
+      "step": "message",
+      "record_id": "L-95e36d544a40",
+      "result": "skip",
+      "message": "No mock message: opt_in is \"no\" and requireOptIn is true.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 294,
+      "step": "message",
+      "record_id": "L-a6cde91984de",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-9e05cff79cc0 to sophie.brown@example.org: \"Great to meet you at the event, Sophie\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 295,
+      "step": "message",
+      "record_id": "L-199518a09983",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-e3487071e5c3 to mohammed.hassan@example.com: \"Thanks for your interest, Mohammed\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 296,
+      "step": "message",
+      "record_id": "L-29a671a82ecb",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-d048e76e2906 to charlotte.reid@example.com: \"Thanks for your interest, Charlotte\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 297,
+      "step": "message",
+      "record_id": "L-156cc31814f3",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-2706b96142f7 to william.foster@example.net: \"Thanks for your interest, William\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 298,
+      "step": "message",
+      "record_id": "L-e880eddeb355",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-f42fcefd2d87 to evie.morgan@example.org: \"Thanks for your interest, Evie\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 299,
+      "step": "message",
+      "record_id": "L-16b5d11912cb",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-078bbe0e53ff to aarav.mehta@example.com: \"Aarav, you were referred to us\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 300,
+      "step": "message",
+      "record_id": "L-dcac209c2470",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-bad1ee4b5d61 to nora.byrne@example.net: \"Thanks for your interest, Nora\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 301,
+      "step": "message",
+      "record_id": "L-e727a9c467f9",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-241240acccb8 to felix.wagner@example.com: \"Great to meet you at the event, Felix\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 302,
+      "step": "message",
+      "record_id": "L-c8d139030ad8",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-274e9f7260c2 to ivy.clarke@example.org: \"Thanks for your interest, Ivy\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 303,
+      "step": "message",
+      "record_id": "L-15162a4cd85f",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-641cf615ece3 to harper.diaz@example.com: \"Thanks for your interest, Harper\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 304,
+      "step": "message",
+      "record_id": "L-d2d9a7acecff",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-191fd59a04ed to sebastian.cole@example.net: \"Sebastian, you were referred to us\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 305,
+      "step": "message",
+      "record_id": "L-8db11d7a3992",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-cc1b941094be to aria.kapoor@example.com: \"Aria, you were referred to us\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 306,
+      "step": "message",
+      "record_id": "L-ba1a532f5a63",
+      "result": "skip",
+      "message": "No mock message: opt_in is \"unknown\" and requireOptIn is true.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 307,
+      "step": "message",
+      "record_id": "L-16ae9bf45653",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-02b6b1d640d8 to layla.haddad@example.com: \"Great to meet you at the event, Layla\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 308,
+      "step": "message",
+      "record_id": "L-b0387ea7bdeb",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-4ccbec9a43fd to max.hoffmann@example.net: \"Great to meet you at the event, Max\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 309,
+      "step": "message",
+      "record_id": "L-31a67e1987f2",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-fade28a20da6 to jacob.price@example.com: \"Thanks for your interest, Jacob\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 310,
+      "step": "message",
+      "record_id": "L-291cc540a298",
+      "result": "ok",
+      "message": "WOULD SEND (mock, not sent) M-ddb69794c803 to alice.young@example.net: \"Thanks for your interest, Alice\".",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 311,
+      "step": "message",
+      "record_id": "L-5ff14181d5c7",
+      "result": "skip",
+      "message": "No mock message: opt_in is \"unknown\" and requireOptIn is true.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 312,
+      "step": "output",
+      "record_id": "",
+      "result": "ok",
+      "message": "Prepared leads.csv with 47 data row(s).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 313,
+      "step": "output",
+      "record_id": "",
+      "result": "ok",
+      "message": "Prepared rejected.csv with 14 data row(s).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 314,
+      "step": "output",
+      "record_id": "",
+      "result": "ok",
+      "message": "Prepared tasks.csv with 47 data row(s).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 315,
+      "step": "output",
+      "record_id": "",
+      "result": "ok",
+      "message": "Prepared mock-outbox.csv with 40 data row(s).",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "seq": 316,
+      "step": "output",
+      "record_id": "",
+      "result": "ok",
+      "message": "Prepared run-log.json and summary.md.",
+      "timestamp": "2026-10-20T09:00:00.000Z"
+    }
+  ],
+  "mockMessages": [
+    {
+      "message_id": "M-98a97cd0b524",
+      "task_id": "T-632bb89777c9",
+      "record_id": "L-3ee0aeabe83a",
+      "to": "liam.oconnor@example.org",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Liam",
+      "body": "Hi Liam, thanks for getting in touch. A member of our team (SDR queue (synthetic)) will follow up by 2026-10-23. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-08e4837d6459",
+      "task_id": "T-7cc15760c29e",
+      "record_id": "L-05cce4b24afb",
+      "to": "sofia.martins@example.net",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Sofia",
+      "body": "Hi Sofia, thanks for getting in touch. A member of our team (SDR queue (synthetic)) will follow up by 2026-10-21. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-be2b7c046427",
+      "task_id": "T-ba682f62867f",
+      "record_id": "L-5adee5a2d0cc",
+      "to": "noah.kim@example.com",
+      "from": "demo-marketing@example.com",
+      "subject": "Noah, you were referred to us",
+      "body": "Hi Noah, someone suggested we connect about Tidewater Software Inc (synthetic). We will call you by 2026-10-21. [Synthetic demo message - not sent]",
+      "template": "Referral / partner",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-38908a0a22a1",
+      "task_id": "T-0390aa373be2",
+      "record_id": "L-5e2970b0b5d1",
+      "to": "mia.chen@example.com",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Mia",
+      "body": "Hi Mia, thanks for getting in touch. A member of our team (SDR queue (synthetic)) will follow up by 2026-10-23. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-0edaa523a736",
+      "task_id": "T-0bfd98f080b1",
+      "record_id": "L-b1f126cfc22b",
+      "to": "isla.fraser@example.org",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Isla",
+      "body": "Hi Isla, thanks for getting in touch. A member of our team (SDR queue (synthetic)) will follow up by 2026-10-21. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-85950f615bac",
+      "task_id": "T-cacd3a722e37",
+      "record_id": "L-6633a8a32543",
+      "to": "arjun.rao@example.com",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Arjun",
+      "body": "Hi Arjun, thanks for getting in touch. A member of our team (SDR queue (synthetic)) will follow up by 2026-10-23. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-5bfff0d707ff",
+      "task_id": "T-4b0f812aa0a0",
+      "record_id": "L-f7aaa9337fb3",
+      "to": "emma.wilson@example.com",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Emma",
+      "body": "Hi Emma, thanks for getting in touch. A member of our team (Marketing ops (synthetic)) will follow up by 2026-10-29. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-0c0a60972d93",
+      "task_id": "T-a516a45bc22d",
+      "record_id": "L-f8ebac48ba64",
+      "to": "grace.okafor@example.com",
+      "from": "demo-marketing@example.com",
+      "subject": "Grace, you were referred to us",
+      "body": "Hi Grace, someone suggested we connect about Kestrel Robotics (synthetic). We will call you by 2026-10-21. [Synthetic demo message - not sent]",
+      "template": "Referral / partner",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-51bf971e20da",
+      "task_id": "T-dd2294640b8d",
+      "record_id": "L-3f401050d746",
+      "to": "mateo.garcia@example.net",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Mateo",
+      "body": "Hi Mateo, thanks for getting in touch. A member of our team (Marketing ops (synthetic)) will follow up by 2026-10-29. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-a7301f55a14a",
+      "task_id": "T-7336fda24ea8",
+      "record_id": "L-1a11af706d5d",
+      "to": "hannah.lee@example.com",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Hannah",
+      "body": "Hi Hannah, thanks for getting in touch. A member of our team (SDR queue (synthetic)) will follow up by 2026-10-23. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-bded7bdaf41b",
+      "task_id": "T-0a0228c80f3c",
+      "record_id": "L-1dca90456de4",
+      "to": "priya.sharma@example.com",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Priya",
+      "body": "Hi Priya, thanks for getting in touch. A member of our team (SDR queue (synthetic)) will follow up by 2026-10-21. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-530eaf8d8fc5",
+      "task_id": "T-629aa0adf900",
+      "record_id": "L-1e812d8fff9c",
+      "to": "tom.becker@example.net",
+      "from": "demo-marketing@example.com",
+      "subject": "Great to meet you at the event, Tom",
+      "body": "Hi Tom, thanks for stopping by. We will send the materials we discussed by 2026-10-23. [Synthetic demo message - not sent]",
+      "template": "Event follow-up",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-625289c4b173",
+      "task_id": "T-7428c2a30b1a",
+      "record_id": "L-8a968cb9b705",
+      "to": "info@example.com",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Lily",
+      "body": "Hi Lily, thanks for getting in touch. A member of our team (SDR queue (synthetic)) will follow up by 2026-10-23. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-823a43d50b3c",
+      "task_id": "T-dc2313b20fc0",
+      "record_id": "L-0dc536b43f21",
+      "to": "ella.nguyen@example.org",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Ella",
+      "body": "Hi Ella, thanks for getting in touch. A member of our team (Marketing ops (synthetic)) will follow up by 2026-10-29. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-26d3e4407e08",
+      "task_id": "T-3c6fac2a4317",
+      "record_id": "L-9b5c2679aa6c",
+      "to": "samuel.ortiz@example.com",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Samuel",
+      "body": "Hi Samuel, thanks for getting in touch. A member of our team (SDR queue (synthetic)) will follow up by 2026-10-23. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-543b360ef84d",
+      "task_id": "T-be0f9fb41002",
+      "record_id": "L-2341ddcaf28e",
+      "to": "amelia.clarke@example.net",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Amelia",
+      "body": "Hi Amelia, thanks for getting in touch. A member of our team (SDR queue (synthetic)) will follow up by 2026-10-23. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-5350c9fb9739",
+      "task_id": "T-0271561aa05c",
+      "record_id": "L-23028f624e7d",
+      "to": "ben.hughes@example.com",
+      "from": "demo-marketing@example.com",
+      "subject": "Ben, you were referred to us",
+      "body": "Hi Ben, someone suggested we connect about Silverpine Fintech (synthetic). We will call you by 2026-10-21. [Synthetic demo message - not sent]",
+      "template": "Referral / partner",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-5dbc2184e50b",
+      "task_id": "T-d1a002b1c0a3",
+      "record_id": "L-3caee32e7cb1",
+      "to": "ruby.fitzgerald@example.org",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Ruby",
+      "body": "Hi Ruby, thanks for getting in touch. A member of our team (Marketing ops (synthetic)) will follow up by 2026-10-29. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-6d4c0cbf76cc",
+      "task_id": "T-4818f3f8194f",
+      "record_id": "L-e06486629f4e",
+      "to": "henry.walsh@example.com",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Henry",
+      "body": "Hi Henry, thanks for getting in touch. A member of our team (SDR queue (synthetic)) will follow up by 2026-10-21. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-2d5c1ded2ca7",
+      "task_id": "T-0cccd4accc38",
+      "record_id": "L-de55ca8d9439",
+      "to": "maya.singh@example.com",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Maya",
+      "body": "Hi Maya, thanks for getting in touch. A member of our team (Marketing ops (synthetic)) will follow up by 2026-10-29. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-cb5d6e74b907",
+      "task_id": "T-0c4bdf524c41",
+      "record_id": "L-b9e02d9089bd",
+      "to": "leo.rossi@example.net",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Leo",
+      "body": "Hi Leo, thanks for getting in touch. A member of our team (Marketing ops (synthetic)) will follow up by 2026-10-29. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-6ff8ea400a9c",
+      "task_id": "T-035b43b0473c",
+      "record_id": "L-2ef94feeb666",
+      "to": "freya.lindqvist@example.org",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Freya",
+      "body": "Hi Freya, thanks for getting in touch. A member of our team (SDR queue (synthetic)) will follow up by 2026-10-23. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-bdb4ec04e1c6",
+      "task_id": "T-9f101fd7998d",
+      "record_id": "L-7c82a18c0539",
+      "to": "oscar.jensen@example.com",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Oscar",
+      "body": "Hi Oscar, thanks for getting in touch. A member of our team (SDR queue (synthetic)) will follow up by 2026-10-23. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-958bce719512",
+      "task_id": "T-a61159013e96",
+      "record_id": "L-e71ff6421ea6",
+      "to": "isabella.moreau@example.net",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Isabella",
+      "body": "Hi Isabella, thanks for getting in touch. A member of our team (SDR queue (synthetic)) will follow up by 2026-10-21. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-9e05cff79cc0",
+      "task_id": "T-8bb409390ac0",
+      "record_id": "L-a6cde91984de",
+      "to": "sophie.brown@example.org",
+      "from": "demo-marketing@example.com",
+      "subject": "Great to meet you at the event, Sophie",
+      "body": "Hi Sophie, thanks for stopping by. We will send the materials we discussed by 2026-10-23. [Synthetic demo message - not sent]",
+      "template": "Event follow-up",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-e3487071e5c3",
+      "task_id": "T-8fbf543d359a",
+      "record_id": "L-199518a09983",
+      "to": "mohammed.hassan@example.com",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Mohammed",
+      "body": "Hi Mohammed, thanks for getting in touch. A member of our team (SDR queue (synthetic)) will follow up by 2026-10-23. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-d048e76e2906",
+      "task_id": "T-0c7e5d3d4b78",
+      "record_id": "L-29a671a82ecb",
+      "to": "charlotte.reid@example.com",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Charlotte",
+      "body": "Hi Charlotte, thanks for getting in touch. A member of our team (SDR queue (synthetic)) will follow up by 2026-10-23. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-2706b96142f7",
+      "task_id": "T-13070c54b61f",
+      "record_id": "L-156cc31814f3",
+      "to": "william.foster@example.net",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, William",
+      "body": "Hi William, thanks for getting in touch. A member of our team (Marketing ops (synthetic)) will follow up by 2026-10-29. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-f42fcefd2d87",
+      "task_id": "T-3e920e98dcb2",
+      "record_id": "L-e880eddeb355",
+      "to": "evie.morgan@example.org",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Evie",
+      "body": "Hi Evie, thanks for getting in touch. A member of our team (SDR queue (synthetic)) will follow up by 2026-10-23. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-078bbe0e53ff",
+      "task_id": "T-76ff922e4c49",
+      "record_id": "L-16b5d11912cb",
+      "to": "aarav.mehta@example.com",
+      "from": "demo-marketing@example.com",
+      "subject": "Aarav, you were referred to us",
+      "body": "Hi Aarav, someone suggested we connect about Silverpine Fintech (synthetic). We will call you by 2026-10-21. [Synthetic demo message - not sent]",
+      "template": "Referral / partner",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-bad1ee4b5d61",
+      "task_id": "T-d669d8fe194e",
+      "record_id": "L-dcac209c2470",
+      "to": "nora.byrne@example.net",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Nora",
+      "body": "Hi Nora, thanks for getting in touch. A member of our team (SDR queue (synthetic)) will follow up by 2026-10-23. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-241240acccb8",
+      "task_id": "T-85913da6708f",
+      "record_id": "L-e727a9c467f9",
+      "to": "felix.wagner@example.com",
+      "from": "demo-marketing@example.com",
+      "subject": "Great to meet you at the event, Felix",
+      "body": "Hi Felix, thanks for stopping by. We will send the materials we discussed by 2026-10-23. [Synthetic demo message - not sent]",
+      "template": "Event follow-up",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-274e9f7260c2",
+      "task_id": "T-b97bd15670e6",
+      "record_id": "L-c8d139030ad8",
+      "to": "ivy.clarke@example.org",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Ivy",
+      "body": "Hi Ivy, thanks for getting in touch. A member of our team (SDR queue (synthetic)) will follow up by 2026-10-23. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-641cf615ece3",
+      "task_id": "T-77b17cd8e53e",
+      "record_id": "L-15162a4cd85f",
+      "to": "harper.diaz@example.com",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Harper",
+      "body": "Hi Harper, thanks for getting in touch. A member of our team (Marketing ops (synthetic)) will follow up by 2026-10-29. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-191fd59a04ed",
+      "task_id": "T-630fc0024ecb",
+      "record_id": "L-d2d9a7acecff",
+      "to": "sebastian.cole@example.net",
+      "from": "demo-marketing@example.com",
+      "subject": "Sebastian, you were referred to us",
+      "body": "Hi Sebastian, someone suggested we connect about Brightwell Energy (synthetic). We will call you by 2026-10-21. [Synthetic demo message - not sent]",
+      "template": "Referral / partner",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-cc1b941094be",
+      "task_id": "T-1d68984a8adf",
+      "record_id": "L-8db11d7a3992",
+      "to": "aria.kapoor@example.com",
+      "from": "demo-marketing@example.com",
+      "subject": "Aria, you were referred to us",
+      "body": "Hi Aria, someone suggested we connect about Riverstone Telecom (synthetic). We will call you by 2026-10-21. [Synthetic demo message - not sent]",
+      "template": "Referral / partner",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-02b6b1d640d8",
+      "task_id": "T-a02b1c01462b",
+      "record_id": "L-16ae9bf45653",
+      "to": "layla.haddad@example.com",
+      "from": "demo-marketing@example.com",
+      "subject": "Great to meet you at the event, Layla",
+      "body": "Hi Layla, thanks for stopping by. We will send the materials we discussed by 2026-10-23. [Synthetic demo message - not sent]",
+      "template": "Event follow-up",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-4ccbec9a43fd",
+      "task_id": "T-09b9f6dbd682",
+      "record_id": "L-b0387ea7bdeb",
+      "to": "max.hoffmann@example.net",
+      "from": "demo-marketing@example.com",
+      "subject": "Great to meet you at the event, Max",
+      "body": "Hi Max, thanks for stopping by. We will send the materials we discussed by 2026-10-23. [Synthetic demo message - not sent]",
+      "template": "Event follow-up",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-fade28a20da6",
+      "task_id": "T-96459eda3cdb",
+      "record_id": "L-31a67e1987f2",
+      "to": "jacob.price@example.com",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Jacob",
+      "body": "Hi Jacob, thanks for getting in touch. A member of our team (SDR queue (synthetic)) will follow up by 2026-10-23. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    },
+    {
+      "message_id": "M-ddb69794c803",
+      "task_id": "T-0e21f1641798",
+      "record_id": "L-291cc540a298",
+      "to": "alice.young@example.net",
+      "from": "demo-marketing@example.com",
+      "subject": "Thanks for your interest, Alice",
+      "body": "Hi Alice, thanks for getting in touch. A member of our team (SDR queue (synthetic)) will follow up by 2026-10-23. [Synthetic demo message - not sent]",
+      "template": "default",
+      "status": "NOT SENT (mock)"
+    }
+  ],
+  "skippedMessages": [
+    {
+      "task_id": "T-5dd7804806de",
+      "record_id": "L-d2cd6fde948a",
+      "reason": "opt_in is \"no\" and requireOptIn is true"
+    },
+    {
+      "task_id": "T-5249367949a9",
+      "record_id": "L-ca0be6ee24bb",
+      "reason": "opt_in is \"unknown\" and requireOptIn is true"
+    },
+    {
+      "task_id": "T-44eec0a49204",
+      "record_id": "L-b7d9fd92e70b",
+      "reason": "opt_in is \"no\" and requireOptIn is true"
+    },
+    {
+      "task_id": "T-f213c53afbbb",
+      "record_id": "L-e701b81da314",
+      "reason": "no email address (phone-only lead)"
+    },
+    {
+      "task_id": "T-14d888dcf77a",
+      "record_id": "L-95e36d544a40",
+      "reason": "opt_in is \"no\" and requireOptIn is true"
+    },
+    {
+      "task_id": "T-3061b7636940",
+      "record_id": "L-ba1a532f5a63",
+      "reason": "opt_in is \"unknown\" and requireOptIn is true"
+    },
+    {
+      "task_id": "T-d7b15e220002",
+      "record_id": "L-5ff14181d5c7",
+      "reason": "opt_in is \"unknown\" and requireOptIn is true"
+    }
+  ]
+}

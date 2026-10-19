@@ -1,0 +1,18 @@
+{
+  "name": "marketing-workflow-automation",
+  "version": "1.0.0",
+  "description": "Reproducible lead-processing workflow (validate, normalise, dedupe, categorise, follow-up tasks, mock messaging) as a static web app and a Node CLI.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "author": "Dash-boop0",
+  "engines": { "node": ">=18" },
+  "bin": { "mwa-run": "cli/run.js" },
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "demo": "node cli/run.js --input sample-data/leads.csv --rules config/rules.json --out out/ --today 2026-10-20",
+    "sample-output": "node cli/run.js --input sample-data/leads.csv --rules config/rules.json --out sample-output/ --today 2026-10-20 --now 2026-10-20T09:00:00.000Z",
+    "build:n8n": "node scripts/build-n8n.js",
+    "serve": "python3 -m http.server 8000"
+  }
+}

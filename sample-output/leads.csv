@@ -1,0 +1,48 @@
+record_id,first_name,last_name,email,phone,company,job_title,company_size,country,source,created_at,opt_in,category,priority,rule_id,task_id,source_rows,warnings,notes
+L-d2cd6fde948a,Ava,Patel,ava.patel@example.com,+12025550101,Northbridge Analytics (synthetic),VP Marketing,2400,US,Website,2026-10-12,no,Enterprise decision maker,high,enterprise-decision-maker,T-5dd7804806de,2;13;31,,Requested pricing (synthetic)
+L-3ee0aeabe83a,Liam,O'Connor,liam.oconnor@example.org,+441632960011,Harbor & Finch Ltd (synthetic),Marketing Manager,180,GB,Website,2026-10-05,yes,Warm inbound,medium,warm-inbound,T-632bb89777c9,3;19,,Second sign-up with a different address
+L-05cce4b24afb,Sofia,Martins,sofia.martins@example.net,,Bluefen Logistics (synthetic),Head of Operations,1200,DE,Event,2026-09-18,yes,Enterprise decision maker,high,enterprise-decision-maker,T-7cc15760c29e,4;56,,Met at stand 14 (synthetic)
+L-5adee5a2d0cc,Noah,Kim,noah.kim@example.com,+12025550102,Tidewater Software Inc (synthetic),CTO,85,US,Referral,2026-10-01,yes,Referral / partner,high,referral,T-ba682f62867f,5;38,,Duplicate submission
+L-5e2970b0b5d1,Mia,Chen,mia.chen@example.com,,Quillstone Media (synthetic),Content Lead,40,CA,Webinar,2026-10-15,yes,Warm inbound,medium,warm-inbound,T-0390aa373be2,6,,
+L-b1f126cfc22b,Isla,Fraser,isla.fraser@example.org,+447700900123,Larkspur Health (synthetic),Director of Digital,3500,GB,LinkedIn,2026-09-30,yes,Enterprise decision maker,high,enterprise-decision-maker,T-0bfd98f080b1,8,,
+L-6633a8a32543,Arjun,Rao,arjun.rao@example.com,,Silverpine Fintech (synthetic),Growth Analyst,220,IN,Content download,2026-10-08,yes,Warm inbound,medium,warm-inbound,T-cacd3a722e37,9,,
+L-ca0be6ee24bb,Chloe,Dubois,chloe.dubois@example.net,,Oakhurst Consulting LLC (synthetic),Partner,60,FR,Partner,2026-08-20,unknown,Referral / partner,high,referral,T-5249367949a9,10,invalid_opt_in,
+L-f7aaa9337fb3,Emma,Wilson,emma.wilson@example.com,+12025550104,Brightwell Energy (synthetic),Marketing Intern,5000,US,Website,2026-10-14,yes,Low fit,low,low-fit-student,T-4b0f812aa0a0,12,,
+L-b7d9fd92e70b,Oliver,Grant,oliver.grant@example.org,+441632960022,Fernvale Foods (synthetic),Category Manager,450,GB,Event,2026-09-25,no,Event follow-up,medium,event-follow-up,T-44eec0a49204,14,,
+L-f8ebac48ba64,Grace,Okafor,grace.okafor@example.com,,Kestrel Robotics (synthetic),Chief Executive Officer,1500,Nigeria,Referral,2026-10-05,yes,Referral / partner,high,referral,T-a516a45bc22d,15,unknown_country,
+L-3f401050d746,Mateo,Garcia,mateo.garcia@example.net,,Willowmere Insurance (synthetic),Operations Analyst,2000,ES,Paid search,2026-07-15,yes,General nurture,low,default,T-dd2294640b8d,16,,
+L-1a11af706d5d,Hannah,Lee,hannah.lee@example.com,+12025550105,Granite Peak Hospitality (synthetic),Revenue Manager,700,US,Website,2026-08-01,yes,Mid-market prospect,medium,mid-market,T-7336fda24ea8,17,,
+L-1dca90456de4,Priya,Sharma,priya.sharma@example.com,,Riverstone Telecom (synthetic),Director IT,8000,IN,LinkedIn,,yes,Enterprise decision maker,high,enterprise-decision-maker,T-0a0228c80f3c,23,invalid_date,
+L-1e812d8fff9c,Tom,Becker,tom.becker@example.net,,Ashcombe Manufacturing (synthetic),Procurement Lead,950,DE,Event,,yes,Event follow-up,medium,event-follow-up,T-629aa0adf900,24,invalid_date,
+L-8a968cb9b705,Lily,Ward,info@example.com,+441632960033,Meridian Grove University (synthetic),Admissions Officer,1100,GB,Website,2026-10-11,yes,Warm inbound,medium,warm-inbound,T-7428c2a30b1a,25,role_email,
+L-e701b81da314,Jack,Turner,,+12025550107,Copperleaf Retail (synthetic),Store Director,300,US,Event,2026-09-29,yes,Event follow-up,medium,event-follow-up,T-f213c53afbbb,26,missing_email,Phone-only lead
+L-0dc536b43f21,Ella,Nguyen,ella.nguyen@example.org,+61491570156,Kestrel Robotics (synthetic),Engineering Student,,AU,Website,2026-10-18,yes,Low fit,low,low-fit-student,T-dc2313b20fc0,27;58,,
+L-9b5c2679aa6c,Samuel,Ortiz,samuel.ortiz@example.com,,Tidewater Software (synthetic),Developer Advocate,85,US,Other,2026-10-05,yes,Mid-market prospect,medium,mid-market,T-3c6fac2a4317,28,invalid_phone;unknown_source,
+L-2341ddcaf28e,Amelia,Clarke,amelia.clarke@example.net,+447700900789,Fernvale Foods Ltd (synthetic),Head of Brand,450,GB,LinkedIn,2026-10-09,yes,Mid-market prospect,medium,mid-market,T-be0f9fb41002,29,,
+L-23028f624e7d,Ben,Hughes,ben.hughes@example.com,,Silverpine Fintech (synthetic),CFO,220,IE,Referral,2026-10-07,yes,Referral / partner,high,referral,T-0271561aa05c,30,,
+L-3caee32e7cb1,Ruby,Fitzgerald,ruby.fitzgerald@example.org,+441632960066,Larkspur Health (synthetic),Nurse Manager,3500,GB,Website,2026-06-02,yes,General nurture,low,default,T-d1a002b1c0a3,32;63,,Filled in phone on second visit
+L-e06486629f4e,Henry,Walsh,henry.walsh@example.com,+12025550108,Brightwell Energy (synthetic),Vice President Operations,5000,US,Event,2026-09-22,yes,Enterprise decision maker,high,enterprise-decision-maker,T-4818f3f8194f,33,,
+L-de55ca8d9439,Maya,Singh,maya.singh@example.com,,Quillstone Media (synthetic),Editor,40,IN,Content download,2026-09-01,yes,General nurture,low,default,T-0cccd4accc38,34,,
+L-b9e02d9089bd,Leo,Rossi,leo.rossi@example.net,,Juniper Lane Studios (synthetic),Creative Director,25,IT,Other,2026-10-17,yes,General nurture,low,default,T-0c4bdf524c41,35,unknown_source,
+L-2ef94feeb666,Freya,Lindqvist,freya.lindqvist@example.org,,Bluefen Logistics (synthetic),Supply Chain Analyst,1200,SE,Webinar,2026-10-06,yes,Warm inbound,medium,warm-inbound,T-035b43b0473c,36,,
+L-7c82a18c0539,Oscar,Jensen,oscar.jensen@example.com,,"Oakhurst Consulting, LLC (synthetic)",Senior Consultant,60,NL,Website,2026-10-04,yes,Warm inbound,medium,warm-inbound,T-9f101fd7998d,37,,
+L-e71ff6421ea6,Isabella,Moreau,isabella.moreau@example.net,,Willowmere Insurance (synthetic),Head of Marketing,2000,FR,Webinar,2026-10-19,yes,Enterprise decision maker,high,enterprise-decision-maker,T-a61159013e96,39,,
+L-95e36d544a40,James,Park,james.park@example.com,+12025550109,Granite Peak Hospitality (synthetic),General Manager,700,US,LinkedIn,2026-09-14,no,Mid-market prospect,medium,mid-market,T-14d888dcf77a,40,,
+L-a6cde91984de,Sophie,Brown,sophie.brown@example.org,+441632960044,Meridian Grove University (synthetic),Research Fellow,1100,GB,Event,2026-10-02,yes,Event follow-up,medium,event-follow-up,T-8bb409390ac0,41,,
+L-199518a09983,Mohammed,Hassan,mohammed.hassan@example.com,,Riverstone Telecom (synthetic),Network Engineer,8000,AE,Website,2026-11-15,yes,Warm inbound,medium,warm-inbound,T-8fbf543d359a,42,future_date,
+L-29a671a82ecb,Charlotte,Reid,charlotte.reid@example.com,,Copperleaf Retail (synthetic),Ecommerce Director,300,CA,Paid search,2026-10-13,yes,Mid-market prospect,medium,mid-market,T-0c7e5d3d4b78,43,,
+L-156cc31814f3,William,Foster,william.foster@example.net,+12025550110,Kestrel Robotics (synthetic),Sales Engineer,1500,US,LinkedIn,2026-09-05,yes,General nurture,low,default,T-13070c54b61f,44,,
+L-e880eddeb355,Evie,Morgan,evie.morgan@example.org,,Harbor & Finch Ltd (synthetic),Content Strategist,180,GB,Content download,2026-10-12,yes,Warm inbound,medium,warm-inbound,T-3e920e98dcb2,45,,
+L-16b5d11912cb,Aarav,Mehta,aarav.mehta@example.com,,Silverpine Fintech (synthetic),Head of Product,,IN,Referral,2026-10-03,yes,Referral / partner,high,referral,T-76ff922e4c49,46,invalid_company_size,
+L-dcac209c2470,Nora,Byrne,nora.byrne@example.net,,Larkspur Health (synthetic),,3500,IE,Website,2026-10-01,yes,Warm inbound,medium,warm-inbound,T-d669d8fe194e,47,,
+L-e727a9c467f9,Felix,Wagner,felix.wagner@example.com,,Ashcombe Manufacturing GmbH (synthetic),Managing Director,950,DE,Event,2026-09-19,yes,Event follow-up,medium,event-follow-up,T-85913da6708f,48,,"'=HYPERLINK(""https://example.com"",""formula injection test"")"
+L-c8d139030ad8,Ivy,Clarke,ivy.clarke@example.org,,Fernvale Foods (synthetic),Marketing Coordinator,450,GB,Website,2026-09-15,yes,Mid-market prospect,medium,mid-market,T-b97bd15670e6,49,,
+L-15162a4cd85f,Harper,Diaz,harper.diaz@example.com,,Willowmere Insurance (synthetic),Claims Intern,2000,ES,LinkedIn,2026-10-10,yes,Low fit,low,low-fit-student,T-77b17cd8e53e,50,,
+L-d2d9a7acecff,Sebastian,Cole,sebastian.cole@example.net,+441632960055,Brightwell Energy (synthetic),Energy Analyst,5000,GB,Referral,2026-10-15,yes,Referral / partner,high,referral,T-630fc0024ecb,51,,
+L-8db11d7a3992,Aria,Kapoor,aria.kapoor@example.com,,Riverstone Telecom (synthetic),VP Partnerships,8000,IN,Partner,2026-10-11,yes,Referral / partner,high,referral,T-1d68984a8adf,52,,
+L-ba1a532f5a63,Theo,Bennett,theo.bennett@example.org,+447700900321,Juniper Lane Studios (synthetic),Producer,25,GB,Webinar,2026-10-16,unknown,Warm inbound,medium,warm-inbound,T-3061b7636940,53,,
+L-16ae9bf45653,Layla,Haddad,layla.haddad@example.com,,Granite Peak Hospitality (synthetic),Director of Sales,700,AE,Event,2026-10-08,yes,Event follow-up,medium,event-follow-up,T-a02b1c01462b,54,,
+L-b0387ea7bdeb,Max,Hoffmann,max.hoffmann@example.net,,Bluefen Logistics (synthetic),Fleet Manager,1200,DE,Event,2026-09-27,yes,Event follow-up,medium,event-follow-up,T-09b9f6dbd682,55,,Asked for a demo Prefers mornings (synthetic note)
+L-31a67e1987f2,Jacob,Price,jacob.price@example.com,+12025550111,Quillstone Media (synthetic),Marketing Director,40,US,Website,2026-10-18,yes,Warm inbound,medium,warm-inbound,T-96459eda3cdb,57,,"Notes, with a comma"
+L-291cc540a298,Alice,Young,alice.young@example.net,2025550112,Oakhurst Consulting LLC (synthetic),Analyst,60,,Website,2026-10-02,yes,Warm inbound,medium,warm-inbound,T-0e21f1641798,60,phone_without_country,
+L-5ff14181d5c7,Kai,Tanaka,kai.tanaka@example.com,,Meridian Grove University (synthetic),Lecturer,,,Unknown,,unknown,General nurture,low,default,T-d7b15e220002,61,short_row,

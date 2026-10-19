@@ -1,0 +1,64 @@
+first_name,last_name,email,phone,company,job_title,company_size,country,source,created_at,opt_in,notes
+Ava,Patel,ava.patel@example.com,202-555-0101,Northbridge Analytics (synthetic),VP Marketing,2400,USA,Website,2026-10-12,yes,Requested pricing (synthetic)
+liam,o'connor,liam.oconnor@example.org,01632 960011,Harbor & Finch Ltd (synthetic),Marketing Manager,180,UK,web form,05/10/2026,Y,
+Sofia,Martins,sofia.martins@example.net,,Bluefen Logistics (synthetic),Head of Operations,1200,Deutschland,Trade Show,,yes,Met at stand 14 (synthetic)
+NOAH,KIM,noah.kim@example.com,+1 202 555 0102,Tidewater Software Inc (synthetic),CTO,85,United States,Referral,2026-10-01,yes,
+Mia,Chen,mia.chen@example.com,,Quillstone Media (synthetic),Content Lead,40,Canada,Webinar,2026-10-15,yes,
+Ethan,Brooks,ethan.brooks@example,202-555-0103,Copperleaf Retail (synthetic),Buyer,300,US,LinkedIn,2026-10-02,no,
+Isla,Fraser,isla.fraser@example.org,07700 900123,Larkspur Health (synthetic),Director of Digital,3500,Scotland,LinkedIn Ads,2026-09-30,yes,
+Arjun,Rao,arjun.rao@example.com,,Silverpine Fintech (synthetic),Growth Analyst,220,India,whitepaper,2026-10-08,yes,
+Chloe,Dubois,chloe.dubois@example.net,,Oakhurst Consulting LLC (synthetic),Partner,60,France,Partner,2026-08-20,maybe,
+Lucas,Schmidt,,,Ashcombe Manufacturing GmbH (synthetic),Plant Manager,900,Germany,Event,2026-09-10,yes,No contact details captured
+Emma,Wilson,emma.wilson@example.com,202-555-0104,Brightwell Energy (synthetic),Marketing Intern,5000,US,Website,2026-10-14,yes,
+ Ava , Patel , AVA.PATEL@EXAMPLE.COM ,,Northbridge Analytics,VP of Marketing,,,Website,2026-10-13,yes,
+Oliver,Grant,oliver.grant@example.org,01632 960022,Fernvale Foods (synthetic),Category Manager,450,United Kingdom,Event,2026-09-25,no,
+Grace,Okafor,grace.okafor@example.com,,Kestrel Robotics (synthetic),Chief Executive Officer,1500,Nigeria,Referral,2026-10-05,yes,
+Mateo,Garcia,mateo.garcia@example.net,,Willowmere Insurance (synthetic),Operations Analyst,2000,Spain,Paid search,2026-07-15,yes,
+Hannah,Lee,hannah.lee@example.com,202-555-0105,Granite Peak Hospitality (synthetic),Revenue Manager,700,USA,Website,2026-08-01,yes,
+,,,,,,,,,,,
+Liam,O'Connor,l.oconnor@example.org,,Harbor and Finch (synthetic),Marketing Manager,,UK,Webinar,2026-10-16,yes,Second sign-up with a different address
+Zara,Ahmed,zara@@example.com,07700 900456,Juniper Lane Studios (synthetic),Producer,25,UK,LinkedIn,2026-10-03,yes,
+,,info@example.org,,Meridian Grove University (synthetic),,1100,UK,Website,2026-10-09,yes,Form submitted without a name
+Daniel,Novak,daniel.novak@example.com,202-555-0106,,Head of Sales,120,USA,Website,2026-10-10,yes,
+Priya,Sharma,priya.sharma@example.com,,Riverstone Telecom (synthetic),Director IT,8000,IN,LinkedIn,2026-13-05,yes,
+Tom,Becker,tom.becker@example.net,,Ashcombe Manufacturing (synthetic),Procurement Lead,950,DE,Event,31/02/2026,yes,
+Lily,Ward,info@example.com,01632 960033,Meridian Grove University (synthetic),Admissions Officer,1100,UK,Website,2026-10-11,yes,
+Jack,Turner,,202-555-0107,Copperleaf Retail (synthetic),Store Director,300,US,Event,2026-09-29,yes,Phone-only lead
+Ella,Nguyen,ella.nguyen@example.org,+61 491 570 156,Kestrel Robotics (synthetic),Engineering Student,,Australia,Website,2026-10-18,yes,
+Samuel,Ortiz,samuel.ortiz@example.com,555-01,Tidewater Software (synthetic),Developer Advocate,85,US,Podcast,2026-10-05,yes,
+Amelia,Clarke,amelia.clarke@example.net,07700 900789,Fernvale Foods Ltd (synthetic),Head of Brand,450,England,LinkedIn,2026-10-09,yes,
+Ben,Hughes,ben.hughes@example.com,,Silverpine Fintech (synthetic),CFO,220,Ireland,Referral,2026-10-07T14:30:00Z,yes,
+Ava,Patel,ava.p@example.net,,Northbridge Analytics (synthetic),VP Marketing,2400,USA,LinkedIn,2026-10-19,no,Asked not to receive marketing email
+Ruby,Fitzgerald,ruby.fitzgerald@example.org,,Larkspur Health (synthetic),Nurse Manager,3500,UK,Website,2026-06-02,yes,
+Henry,Walsh,henry.walsh@example.com,+1 (202) 555-0108,Brightwell Energy (synthetic),Vice President Operations,5000,USA,Event,2026-09-22,yes,
+Maya,Singh,maya.singh@example.com,,Quillstone Media (synthetic),Editor,40,India,Content Download,2026-09-01,1,
+Leo,Rossi,leo.rossi@example.net,,Juniper Lane Studios (synthetic),Creative Director,25,Italy,Instagram,2026-10-17,yes,
+Freya,Lindqvist,freya.lindqvist@example.org,,Bluefen Logistics (synthetic),Supply Chain Analyst,1200,Sweden,Webinar,2026-10-06,true,
+Oscar,Jensen,oscar.jensen@example.com,,"Oakhurst Consulting, LLC (synthetic)",Senior Consultant,60,Netherlands,Website,2026/10/04,yes,
+Noah,Kim,noah.kim@example.com,,Tidewater Software (synthetic),Chief Technology Officer,85,USA,Referral,2026-10-01,yes,Duplicate submission
+Isabella,Moreau,isabella.moreau@example.net,,Willowmere Insurance (synthetic),Head of Marketing,2000,France,Webinar,2026-10-19,yes,
+James,Park,james.park@example.com,202-555-0109,Granite Peak Hospitality (synthetic),General Manager,700,USA,LinkedIn,2026-09-14,No,
+Sophie,Brown,sophie.brown@example.org,01632 960044,Meridian Grove University (synthetic),Research Fellow,1100,UK,Event,2026-10-02,yes,
+Mohammed,Hassan,mohammed.hassan@example.com,,Riverstone Telecom (synthetic),Network Engineer,8000,UAE,Website,2026-11-15,yes,
+Charlotte,Reid,charlotte.reid@example.com,,Copperleaf Retail (synthetic),Ecommerce Director,300,Canada,Paid search,2026-10-13,yes,
+William,Foster,william.foster@example.net,202-555-0110,Kestrel Robotics (synthetic),Sales Engineer,1500,US,LinkedIn,2026-09-05,yes,
+Evie,Morgan,evie.morgan@example.org,,Harbor & Finch Ltd (synthetic),Content Strategist,180,Wales,Content download,2026-10-12,yes,
+Aarav,Mehta,aarav.mehta@example.com,,Silverpine Fintech (synthetic),Head of Product,about 200,India,Referral,2026-10-03,yes,
+Nora,Byrne,nora.byrne@example.net,,Larkspur Health (synthetic),,3500,Ireland,Website,2026-10-01,yes,
+Felix,Wagner,felix.wagner@example.com,,Ashcombe Manufacturing GmbH (synthetic),Managing Director,950,Germany,Event,2026-09-19,yes,"=HYPERLINK(""https://example.com"",""formula injection test"")"
+Ivy,Clarke,ivy.clarke@example.org,,Fernvale Foods (synthetic),Marketing Coordinator,450,UK,Website,15.09.2026,yes,
+Harper,Diaz,harper.diaz@example.com,,Willowmere Insurance (synthetic),Claims Intern,2000,Spain,LinkedIn,2026-10-10,yes,
+Sebastian,Cole,sebastian.cole@example.net,0044 1632 960055,Brightwell Energy (synthetic),Energy Analyst,5000,UK,Referral,2026-10-15,yes,
+Aria,Kapoor,aria.kapoor@example.com,,Riverstone Telecom (synthetic),VP Partnerships,8000,India,Partner,2026-10-11,yes,
+Theo,Bennett,theo.bennett@example.org,07700 900 321,Juniper Lane Studios (synthetic),Producer,25,UK,Webinar,2026-10-16,,
+Layla,Haddad,layla.haddad@example.com,,Granite Peak Hospitality (synthetic),Director of Sales,700,UAE,Event,2026-10-08,yes,
+Max,Hoffmann,max.hoffmann@example.net,,Bluefen Logistics (synthetic),Fleet Manager,1200,Germany,Trade show,2026-09-27,yes,"Asked for a demo
+Prefers mornings (synthetic note)"
+Sophia,Martins,SOFIA.MARTINS@example.net,,Bluefen Logistics (synthetic),Head of Operations,1200,Germany,Event,2026-09-18,yes,Second badge scan
+Jacob,Price,jacob.price@example.com,202-555-0111,Quillstone Media (synthetic),Marketing Director,40,US,Website,2026-10-18,yes,"Notes, with a comma"
+Ella,Nguyen,ELLA.NGUYEN@example.org,,Kestrel Robotics (synthetic),Engineering Student,,AU,Website,2026-10-18,yes,
+Rohan,Iyer,rohan.iyer@example.com,,Silverpine Fintech (synthetic),Data Scientist,220,India,LinkedIn,2026-10-01,yes,,unexpected extra value
+Alice,Young,alice.young@example.net,2025550112,Oakhurst Consulting LLC (synthetic),Analyst,60,,Website,2026-10-02,yes,
+Kai,Tanaka,kai.tanaka@example.com,,Meridian Grove University (synthetic),Lecturer
+Olivia,Hart,olivia hart@example.com,,Fernvale Foods (synthetic),Brand Manager,450,UK,Website,2026-10-12,yes,
+Ruby,Fitzgerald,Ruby.Fitzgerald@example.org,01632 960066,Larkspur Health (synthetic),Nurse Manager,3500,UK,Website,2026-06-02,yes,Filled in phone on second visit

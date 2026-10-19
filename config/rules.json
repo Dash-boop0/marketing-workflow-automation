@@ -1,0 +1,85 @@
+{
+  "version": "1.0",
+  "description": "Example rules for the synthetic demo. Categorisation is first-match-wins in the order listed. Messaging is mock-only.",
+  "categorisation": {
+    "defaultCategory": "General nurture",
+    "defaultPriority": "low",
+    "rules": [
+      {
+        "id": "low-fit-student",
+        "description": "Students and interns are unlikely buyers; keep them in nurture.",
+        "when": { "field": "job_title", "op": "has_any_word", "value": ["student", "intern", "trainee"] },
+        "then": { "category": "Low fit", "priority": "low" }
+      },
+      {
+        "id": "referral",
+        "description": "Referrals are the warmest leads.",
+        "when": { "any": [
+          { "field": "source", "op": "equals", "value": "Referral" },
+          { "field": "source", "op": "equals", "value": "Partner" }
+        ] },
+        "then": { "category": "Referral / partner", "priority": "high" }
+      },
+      {
+        "id": "enterprise-decision-maker",
+        "description": "Senior titles at companies with 1,000+ employees.",
+        "when": { "all": [
+          { "field": "company_size", "op": "gte", "value": 1000 },
+          { "field": "job_title", "op": "has_any_word", "value": ["chief", "ceo", "cmo", "cto", "vp", "vice president", "director", "head"] }
+        ] },
+        "then": { "category": "Enterprise decision maker", "priority": "high" }
+      },
+      {
+        "id": "warm-inbound",
+        "description": "Recent inbound interest (website, webinar or content download in the last 30 days).",
+        "when": { "all": [
+          { "field": "source", "op": "in", "value": ["Website", "Webinar", "Content download"] },
+          { "field": "lead_age_days", "op": "lte", "value": 30 }
+        ] },
+        "then": { "category": "Warm inbound", "priority": "medium" }
+      },
+      {
+        "id": "event-follow-up",
+        "description": "Met at an event or trade show.",
+        "when": { "field": "source", "op": "equals", "value": "Event" },
+        "then": { "category": "Event follow-up", "priority": "medium" }
+      },
+      {
+        "id": "mid-market",
+        "description": "Companies with 50-999 employees from any other source.",
+        "when": { "all": [
+          { "field": "company_size", "op": "gte", "value": 50 },
+          { "field": "company_size", "op": "lt", "value": 1000 }
+        ] },
+        "then": { "category": "Mid-market prospect", "priority": "medium" }
+      }
+    ]
+  },
+  "tasks": {
+    "skipWeekends": true,
+    "priorities": {
+      "high": { "dueInDays": 1, "taskType": "Call", "owner": "SDR queue (synthetic)" },
+      "medium": { "dueInDays": 3, "taskType": "Personalised email", "owner": "SDR queue (synthetic)" },
+      "low": { "dueInDays": 7, "taskType": "Add to nurture sequence", "owner": "Marketing ops (synthetic)" }
+    }
+  },
+  "messaging": {
+    "mode": "mock",
+    "requireOptIn": true,
+    "from": "demo-marketing@example.com",
+    "templates": {
+      "default": {
+        "subject": "Thanks for your interest, {{first_name|there}}",
+        "body": "Hi {{first_name|there}}, thanks for getting in touch. A member of our team ({{owner}}) will follow up by {{due_date}}. [Synthetic demo message - not sent]"
+      },
+      "Referral / partner": {
+        "subject": "{{first_name|Hello}}, you were referred to us",
+        "body": "Hi {{first_name|there}}, someone suggested we connect about {{company}}. We will call you by {{due_date}}. [Synthetic demo message - not sent]"
+      },
+      "Event follow-up": {
+        "subject": "Great to meet you at the event, {{first_name|there}}",
+        "body": "Hi {{first_name|there}}, thanks for stopping by. We will send the materials we discussed by {{due_date}}. [Synthetic demo message - not sent]"
+      }
+    }
+  }
+}

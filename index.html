@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marketing Workflow Automation</title>
+  <meta name="description" content="Reproducible lead workflow: validate, normalise, dedupe and categorise synthetic leads, then create follow-up tasks with mock (never sent) messaging.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232F5BEA'/%3E%3Cpath d='M8 10h16l-6 7v6l-4 2v-8z' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <h1>Marketing Workflow Automation</h1>
+        <span class="tag">CSV leads → validate → normalise → dedupe → categorise → tasks → mock messages</span>
+      </div>
+      <nav class="tabs" role="tablist" aria-label="Sections">
+        <button class="tab" role="tab" id="tab-input" aria-controls="panel-input" aria-selected="true">Input</button>
+        <button class="tab" role="tab" id="tab-rules" aria-controls="panel-rules" aria-selected="false" tabindex="-1">Rules</button>
+        <button class="tab" role="tab" id="tab-results" aria-controls="panel-results" aria-selected="false" tabindex="-1">Results</button>
+        <button class="tab" role="tab" id="tab-help" aria-controls="panel-help" aria-selected="false" tabindex="-1">How it works</button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="banner" role="note">
+    <p><strong>Synthetic demo.</strong> Sample leads, companies and contacts are fictional (example.com addresses, reserved fictional phone ranges). Messaging is mocked: nothing is ever sent, the app only shows what <em>would</em> be sent. Data stays in your browser (localStorage).</p>
+  </div>
+
+  <main id="main">
+    <!-- INPUT -->
+    <section id="panel-input" role="tabpanel" aria-labelledby="tab-input">
+      <div class="grid-2">
+        <div class="card">
+          <h2>1. Leads CSV</h2>
+          <p class="muted small">Required columns: <code>company</code>, <code>email</code> or <code>phone</code>, and <code>first_name</code> or <code>last_name</code>. Common header aliases are recognised.</p>
+          <div class="row" style="margin-bottom:10px">
+            <button class="btn" id="btn-sample" type="button">Load sample leads</button>
+            <span class="btn file-btn">Choose CSV file…<input type="file" id="file-csv" accept=".csv,text/csv" aria-label="Choose a CSV file of leads"></span>
+            <button class="btn" id="btn-template" type="button">Download CSV template</button>
+          </div>
+          <label for="csv-text">Or paste CSV</label>
+          <textarea id="csv-text" class="csv" spellcheck="false" placeholder="first_name,last_name,email,phone,company,..."></textarea>
+          <p class="small muted" id="csv-meta" aria-live="polite"></p>
+        </div>
+        <div class="card">
+          <h2>2. Run settings</h2>
+          <div class="stack">
+            <div>
+              <label for="run-date">Run date</label>
+              <input type="date" id="run-date">
+              <p class="small muted">Due dates and lead age are calculated from this date, so a run is reproducible.</p>
+            </div>
+            <label class="inline"><input type="checkbox" id="skip-weekends"> Skip weekends when calculating due dates</label>
+            <label class="inline"><input type="checkbox" id="use-store" checked> Use saved task board (re-runs never duplicate tasks or messages)</label>
+            <p class="small" id="rules-state"></p>
+          </div>
+          <div class="row" style="margin-top:12px">
+            <button class="btn primary" id="btn-run" type="button">Run workflow</button>
+          </div>
+          <p class="status" id="run-status" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Input preview</h2>
+        <div id="preview"></div>
+      </div>
+      <div class="card">
+        <h2>Your data</h2>
+        <p class="small muted">Everything is stored only in this browser. Back up to a JSON file, restore it later, or reset to start over.</p>
+        <div class="row">
+          <button class="btn" id="btn-backup" type="button">Back up data (JSON)</button>
+          <span class="btn file-btn">Restore from backup…<input type="file" id="file-restore" accept=".json,application/json" aria-label="Restore from a backup JSON file"></span>
+          <button class="btn danger" id="btn-reset" type="button">Reset everything</button>
+        </div>
+        <p class="status" id="data-status" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- RULES -->
+    <section id="panel-rules" role="tabpanel" aria-labelledby="tab-rules" hidden>
+      <div class="grid-2">
+        <div class="card">
+          <h2>Rules file (config/rules.json)</h2>
+          <p class="small muted">Edit the JSON directly. It is validated as you type; the workflow only runs with valid rules. Categorisation is first-match-wins, top to bottom.</p>
+          <label for="rules-text">Rules JSON</label>
+          <textarea id="rules-text" class="json" spellcheck="false" aria-describedby="rules-errors"></textarea>
+          <div class="row" style="margin-top:8px">
+            <button class="btn" id="btn-format" type="button">Format JSON</button>
+            <button class="btn" id="btn-default-rules" type="button">Restore default rules</button>
+            <button class="btn" id="btn-dl-rules" type="button">Download rules.json</button>
+          </div>
+        </div>
+        <div>
+          <div class="card">
+            <h2>Validation</h2>
+            <div id="rules-errors" aria-live="polite"></div>
+          </div>
+          <div class="card">
+            <h2>Rules in plain English</h2>
+            <div id="rules-readable"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section id="panel-results" role="tabpanel" aria-labelledby="tab-results" hidden>
+      <div id="results"></div>
+    </section>
+
+    <!-- HELP -->
+    <section id="panel-help" role="tabpanel" aria-labelledby="tab-help" hidden>
+      <div class="card">
+        <h2>How the workflow runs</h2>
+        <ol>
+          <li><strong>Ingest</strong> – parse the CSV (RFC 4180: quotes, commas and line breaks inside quotes, BOM, CRLF) and map header aliases.</li>
+          <li><strong>Validate</strong> – required fields, email syntax, date formats and more. Each rule either <em>rejects</em> the row or <em>warns</em> and keeps it (table below).</li>
+          <li><strong>Normalise</strong> – trim, title-case names, lower-case email, phone to digits with country calling code, country to ISO code, source names to a fixed list.</li>
+          <li><strong>Dedupe</strong> – same email first, then same first name + last name + company. The first row survives; blank fields are filled from duplicates; any opt-out wins.</li>
+          <li><strong>Categorise</strong> – ordered rules from the rules file assign a category and priority; first match wins, otherwise the default.</li>
+          <li><strong>Tasks</strong> – one follow-up task per lead with a due date offset by priority (optionally skipping weekends).</li>
+          <li><strong>Mock messaging</strong> – logs the email that <em>would</em> be sent for opted-in leads. Nothing is sent; there is no sending code.</li>
+          <li><strong>Outputs</strong> – clean leads, rejected rows with reasons, tasks, mock outbox, run log (JSON) and a summary (Markdown).</li>
+        </ol>
+        <h3>Idempotency</h3>
+        <p>Record IDs are a hash of the normalised email (or name + company), task IDs a hash of the record ID. Re-running the same input with the same rules and run date produces identical outputs. With the saved task board on, a re-run inserts only tasks that do not exist yet, keeps your status changes, and does not repeat mock messages.</p>
+        <h3>Same logic on the command line</h3>
+        <pre class="mono small" style="white-space:pre-wrap">node cli/run.js --input sample-data/leads.csv --rules config/rules.json --out out/ --today 2026-10-20</pre>
+      </div>
+      <div class="card">
+        <h2>Validation rules</h2>
+        <div id="validation-table"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Portfolio project by <a href="https://dash-boop0.github.io/">Dash-boop0</a> ·
+    <a href="https://github.com/Dash-boop0/marketing-workflow-automation">Source on GitHub</a> ·
+    Sample data is synthetic
+  </footer>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
