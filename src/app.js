@@ -7,6 +7,11 @@ import { localIsoDate, isIsoDate } from './lib/dates.js';
 import { leadsToCsv, rejectedToCsv, tasksToCsv, outboxToCsv, buildRunLog, buildSummary, formatPct } from './lib/outputs.js';
 
 const STORE_KEY = 'mwa:v1';
+/** Set when the visitor chose to start empty (or reset), so the sample is not auto-loaded again. */
+const START_EMPTY_KEY = `${STORE_KEY}:startEmpty`;
+const SAMPLE_NAME = 'leads.csv (synthetic sample)';
+/** Run date used for the auto-loaded demo, so it matches the committed sample-output/ files. */
+const SAMPLE_RUN_DATE = '2026-10-20';
 const $ = (id) => document.getElementById(id);
 const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const COLORS = ['var(--s1)', 'var(--s2)', 'var(--s3)', 'var(--s4)', 'var(--s5)', 'var(--s6)'];
@@ -15,6 +20,7 @@ const PRIORITY_COLORS = ['var(--s4)', 'var(--s2)', 'var(--s1)', 'var(--s3)', 'va
 const state = {
   csvText: '',
   inputName: '',
+  isSample: false,
   rulesText: '',
   runDate: localIsoDate(),
   useStore: true,
@@ -28,11 +34,28 @@ const state = {
 // ---------------------------------------------------------------- persistence
 function save() {
   try {
-    const { csvText, inputName, rulesText, runDate, useStore, taskStore, last } = state;
-    localStorage.setItem(STORE_KEY, JSON.stringify({ version: 1, csvText, inputName, rulesText, runDate, useStore, taskStore, last }));
+    const { csvText, inputName, isSample, rulesText, runDate, useStore, taskStore, last } = state;
+    localStorage.setItem(STORE_KEY, JSON.stringify({ version: 1, csvText, inputName, isSample, rulesText, runDate, useStore, taskStore, last }));
   } catch (e) {
     setStatus('data-status', `Could not save to this browser (${e.name}). Use "Back up data" to keep a copy.`, 'warn');
   }
+  renderBanner();
+}
+
+function hasSavedState() {
+  try { return localStorage.getItem(STORE_KEY) !== null; } catch { return false; }
+}
+function startEmptyChosen() {
+  try { return localStorage.getItem(START_EMPTY_KEY) === '1'; } catch { return false; }
+}
+function rememberStartEmpty() {
+  try { localStorage.setItem(START_EMPTY_KEY, '1'); } catch { /* storage unavailable */ }
+}
+
+function renderBanner() {
+  $('banner').innerHTML = state.isSample
+    ? `<div class="sample-banner" role="note"><p class="sample-banner__text"><strong>Synthetic demo.</strong> Sample leads, companies and contacts are fictional (example.com addresses, reserved fictional phone ranges). Messaging is mocked: nothing is ever sent, the app only shows what <em>would</em> be sent.</p><button type="button" class="sample-banner__action" data-action="start-own">Start with your own data</button></div>`
+    : `<div class="sample-banner is-info" role="note"><p class="sample-banner__text"><strong>Your data stays in this browser.</strong> Messaging is mocked: nothing is ever sent, the app only shows what <em>would</em> be sent. The bundled sample leads are synthetic.</p></div>`;
 }
 
 function validBackup(obj) {
@@ -56,6 +79,7 @@ function load() {
 function applyBackup(obj) {
   state.csvText = obj.csvText;
   state.inputName = obj.inputName || 'restored.csv';
+  state.isSample = obj.isSample === true;
   state.rulesText = obj.rulesText;
   state.runDate = isIsoDate(obj.runDate) ? obj.runDate : localIsoDate();
   state.useStore = obj.useStore !== false;
@@ -94,30 +118,29 @@ function currentRules() {
   return parseRulesText(state.rulesText);
 }
 
-// ---------------------------------------------------------------- tabs
+// ---------------------------------------------------------------- tabs (hash routes: #input, #rules, #results, #help)
 const TABS = ['input', 'rules', 'results', 'help'];
+const hashTab = () => { const h = location.hash.slice(1); return TABS.includes(h) ? h : ''; };
 function showTab(name, focus = false) {
   state.tab = name;
+  if (location.hash.slice(1) !== name) history.replaceState(null, '', `#${name}`);
   for (const t of TABS) {
-    const btn = $(`tab-${t}`);
     const on = t === name;
-    btn.setAttribute('aria-selected', String(on));
-    btn.tabIndex = on ? 0 : -1;
+    if (on) $(`tab-${t}`).setAttribute('aria-current', 'page');
+    else $(`tab-${t}`).removeAttribute('aria-current');
     $(`panel-${t}`).hidden = !on;
-    if (on && focus) btn.focus();
   }
   if (name === 'results') renderResults();
   if (name === 'rules') renderRules();
+  if (focus) $('main').focus({ preventScroll: true });
 }
 
 function initTabs() {
-  for (const t of TABS) $(`tab-${t}`).addEventListener('click', () => showTab(t));
-  document.querySelector('.tabs').addEventListener('keydown', (e) => {
-    const i = TABS.indexOf(state.tab);
-    if (e.key === 'ArrowRight') showTab(TABS[(i + 1) % TABS.length], true);
-    else if (e.key === 'ArrowLeft') showTab(TABS[(i + TABS.length - 1) % TABS.length], true);
-    else return;
-    e.preventDefault();
+  window.addEventListener('hashchange', () => {
+    const t = hashTab() || 'input';
+    if (t === state.tab) return;
+    showTab(t, true);
+    window.scrollTo(0, 0);
   });
 }
 
@@ -160,9 +183,10 @@ function renderPreview() {
     body.map((r) => `<tr>${head.map((_, i) => `<td>${esc(r[i] ?? '')}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
 }
 
-function setCsv(text, name) {
+function setCsv(text, name, isSample = false) {
   state.csvText = text;
   state.inputName = name;
+  state.isSample = isSample;
   save();
   renderInput();
 }
@@ -170,7 +194,7 @@ function setCsv(text, name) {
 function initInput() {
   $('btn-sample').addEventListener('click', async () => {
     try {
-      setCsv(await fetchText('sample-data/leads.csv'), 'leads.csv (synthetic sample)');
+      setCsv(await fetchText('sample-data/leads.csv'), SAMPLE_NAME, true);
       setStatus('run-status', 'Sample leads loaded (61 data rows incl. deliberate errors and duplicates, plus 1 blank row). Press "Run workflow".', 'ok');
     } catch (e) {
       setStatus('run-status', `Could not load the sample (${e.message}). Serve the folder with a local web server, see README.`, 'err');
@@ -193,6 +217,7 @@ function initInput() {
     t = setTimeout(() => {
       state.csvText = e.target.value;
       state.inputName = 'pasted text';
+      state.isSample = false;
       save();
       renderPreview();
       $('btn-run').disabled = !currentRules().rules || !state.csvText.trim();
@@ -218,7 +243,7 @@ function initInput() {
   $('btn-run').addEventListener('click', runNow);
 }
 
-function runNow() {
+function runNow({ show = true } = {}) {
   const { rules, errors } = currentRules();
   if (!rules) {
     setStatus('run-status', `Rules are invalid (${errors.length} problem(s)). Fix them in the Rules tab.`, 'err');
@@ -244,14 +269,40 @@ function runNow() {
     setStatus('run-status', `Done: ${c.uniqueLeads} clean leads, ${c.tasksCreated} new task(s), ${c.tasksAlreadyExisted} already existed, ${c.messagesMocked} mock message(s) (not sent).`, 'ok');
   }
   state.sub = 'overview';
-  showTab('results', true);
+  if (show) showTab('results', true);
+}
+
+/** Clear the sample (keeping the rules) and show the empty Input page. */
+function startOwn() {
+  rememberStartEmpty();
+  Object.assign(state, { csvText: '', inputName: '', isSample: false, taskStore: {}, last: null, runDate: localIsoDate(), sub: 'overview' });
+  save();
+  renderInput();
+  showTab('input', true);
+  setStatus('run-status', 'Sample cleared. Choose or paste your own leads CSV, or load the sample again.', 'ok');
+}
+
+/** First visit: load the synthetic sample and run it once so the Results dashboard is populated. */
+async function autoLoadSample() {
+  try {
+    state.csvText = await fetchText('sample-data/leads.csv');
+  } catch (e) {
+    setStatus('run-status', `Could not load the sample (${e.message}). Serve the folder with a local web server, see README.`, 'err');
+    return false;
+  }
+  state.inputName = SAMPLE_NAME;
+  state.isSample = true;
+  state.runDate = SAMPLE_RUN_DATE;
+  renderInput();
+  runNow({ show: false });
+  return !!state.last;
 }
 
 // ---------------------------------------------------------------- data backup
 function initData() {
   $('btn-backup').addEventListener('click', () => {
-    const { csvText, inputName, rulesText, runDate, useStore, taskStore, last } = state;
-    download(`mwa-backup-${localIsoDate()}.json`, JSON.stringify({ version: 1, app: 'marketing-workflow-automation', csvText, inputName, rulesText, runDate, useStore, taskStore, last }, null, 2), 'application/json');
+    const { csvText, inputName, isSample, rulesText, runDate, useStore, taskStore, last } = state;
+    download(`mwa-backup-${localIsoDate()}.json`, JSON.stringify({ version: 1, app: 'marketing-workflow-automation', csvText, inputName, isSample, rulesText, runDate, useStore, taskStore, last }, null, 2), 'application/json');
     setStatus('data-status', 'Backup downloaded.', 'ok');
   });
   $('file-restore').addEventListener('change', async (e) => {
@@ -272,7 +323,8 @@ function initData() {
   $('btn-reset').addEventListener('click', async () => {
     if (!confirm('Reset everything? This clears the loaded CSV, your rule edits, the task board and the last run from this browser.')) return;
     try { localStorage.removeItem(STORE_KEY); } catch { /* ignore */ }
-    Object.assign(state, { csvText: '', inputName: '', taskStore: {}, last: null, runDate: localIsoDate(), useStore: true });
+    rememberStartEmpty();
+    Object.assign(state, { csvText: '', inputName: '', isSample: false, taskStore: {}, last: null, runDate: localIsoDate(), useStore: true });
     await loadDefaultRules();
     save();
     renderInput();
@@ -413,7 +465,7 @@ function tasksWithStatus(r) {
 }
 
 function renderResults() {
-  const box = $('results');
+  const box = $('run-results');
   const r = state.last;
   if (!r) {
     box.innerHTML = '<div class="card empty"><strong>No run yet.</strong>Go to <a href="#" data-go="input">Input</a>, load the sample leads or your own CSV, then press "Run workflow".</div>';
@@ -630,11 +682,17 @@ async function boot() {
   initData();
   initRules();
   renderValidationTable();
+  $('banner').addEventListener('click', (e) => { if (e.target.closest('[data-action="start-own"]')) startOwn(); });
+  const firstVisit = !hasSavedState() && !startEmptyChosen();
   const restored = load();
   if (!restored || !state.rulesText) await loadDefaultRules();
   renderInput();
   renderRules();
-  if (restored && state.last) setStatus('run-status', 'Restored your last session from this browser.', 'ok');
+  renderBanner();
+  let tab = hashTab() || 'input';
+  if (firstVisit && (await autoLoadSample())) tab = hashTab() || 'results';
+  else if (restored && state.last) setStatus('run-status', 'Restored your last session from this browser.', 'ok');
+  showTab(tab);
 }
 
 boot();

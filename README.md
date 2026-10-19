@@ -108,8 +108,10 @@ Code node executed with a mocked n8n API, but it has not been run inside n8n.**
 
 ## How to use the web app
 
-1. **Input** – *Load sample leads*, choose a CSV file, or paste CSV. Check the preview. Set the run date and the
-   options (skip weekends; use the saved task board).
+1. **Input** – on your first visit the synthetic sample leads are loaded and run once (run date 2026-10-20, matching
+   `sample-output/`), so you land on **Results**. Click **Start with your own data** in the sample banner to clear it
+   (the choice is remembered). Then *Load sample leads*, choose a CSV file, or paste CSV. Check the preview. Set the
+   run date and the options (skip weekends; use the saved task board).
 2. **Rules** – edit `rules.json` in place. Errors are shown with their JSON path (e.g.
    `$.categorisation.rules[2].then.priority`) and the workflow will not run until they are fixed.
 3. **Run workflow** → **Results**:

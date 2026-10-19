@@ -10,28 +10,26 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="topbar">
-    <div class="topbar-inner">
-      <div class="brand">
-        <h1>Marketing Workflow Automation</h1>
-        <span class="tag">CSV leads → validate → normalise → dedupe → categorise → tasks → mock messages</span>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <div class="site-header__top">
+        <a class="site-brand" href="#input"><svg class="site-brand__icon" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="7"/><path class="glyph-f" d="M8 10h16l-6 7v6l-4 2v-8z"/></svg><span class="site-brand__name">Marketing Workflow Automation</span></a>
+        <a class="site-home" href="https://dash-boop0.github.io/"><span aria-hidden="true">←</span> All projects</a>
       </div>
-      <nav class="tabs" role="tablist" aria-label="Sections">
-        <button class="tab" role="tab" id="tab-input" aria-controls="panel-input" aria-selected="true">Input</button>
-        <button class="tab" role="tab" id="tab-rules" aria-controls="panel-rules" aria-selected="false" tabindex="-1">Rules</button>
-        <button class="tab" role="tab" id="tab-results" aria-controls="panel-results" aria-selected="false" tabindex="-1">Results</button>
-        <button class="tab" role="tab" id="tab-help" aria-controls="panel-help" aria-selected="false" tabindex="-1">How it works</button>
+      <nav class="site-tabs" id="tabs" aria-label="Sections">
+        <a href="#input" id="tab-input" data-tab="input" aria-current="page">Input</a>
+        <a href="#rules" id="tab-rules" data-tab="rules">Rules</a>
+        <a href="#results" id="tab-results" data-tab="results">Results</a>
+        <a href="#help" id="tab-help" data-tab="help">How it works</a>
       </nav>
     </div>
   </header>
+  <div id="banner" class="site-banner"></div>
 
-  <div class="banner" role="note">
-    <p><strong>Synthetic demo.</strong> Sample leads, companies and contacts are fictional (example.com addresses, reserved fictional phone ranges). Messaging is mocked: nothing is ever sent, the app only shows what <em>would</em> be sent. Data stays in your browser (localStorage).</p>
-  </div>
-
-  <main id="main">
+  <main id="main" class="site-main" tabindex="-1">
     <!-- INPUT -->
-    <section id="panel-input" role="tabpanel" aria-labelledby="tab-input">
+    <section id="panel-input" aria-labelledby="title-input">
+      <div class="page-head"><div><h1 id="title-input">Input</h1><p>CSV leads → validate → normalise → dedupe → categorise → tasks → mock messages. Load leads, pick a run date, then run the workflow.</p></div></div>
       <div class="grid-2">
         <div class="card">
           <h2>1. Leads CSV</h2>
@@ -80,7 +78,8 @@
     </section>
 
     <!-- RULES -->
-    <section id="panel-rules" role="tabpanel" aria-labelledby="tab-rules" hidden>
+    <section id="panel-rules" aria-labelledby="title-rules" hidden>
+      <div class="page-head"><div><h1 id="title-rules">Rules</h1><p>Categorisation and follow-up task rules (config/rules.json), validated as you type.</p></div></div>
       <div class="grid-2">
         <div class="card">
           <h2>Rules file (config/rules.json)</h2>
@@ -107,12 +106,14 @@
     </section>
 
     <!-- RESULTS -->
-    <section id="panel-results" role="tabpanel" aria-labelledby="tab-results" hidden>
-      <div id="results"></div>
+    <section id="panel-results" aria-labelledby="title-results" hidden>
+      <div class="page-head"><div><h1 id="title-results">Results</h1><p>Outputs of the last run: counts, charts, step log, rejected rows, clean leads, tasks and the mock outbox.</p></div></div>
+      <div id="run-results"></div>
     </section>
 
     <!-- HELP -->
-    <section id="panel-help" role="tabpanel" aria-labelledby="tab-help" hidden>
+    <section id="panel-help" aria-labelledby="title-help" hidden>
+      <div class="page-head"><div><h1 id="title-help">How it works</h1><p>The same pipeline runs in the browser, on the command line and as an n8n workflow.</p></div></div>
       <div class="card">
         <h2>How the workflow runs</h2>
         <ol>
@@ -137,10 +138,15 @@
     </section>
   </main>
 
-  <footer>
-    Portfolio project by <a href="https://dash-boop0.github.io/">Dash-boop0</a> ·
-    <a href="https://github.com/Dash-boop0/marketing-workflow-automation">Source on GitHub</a> ·
-    Sample data is synthetic
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <nav class="site-footer__links" aria-label="Portfolio links">
+        <a href="https://dash-boop0.github.io/"><span aria-hidden="true">←</span> All projects</a>
+        <a href="https://github.com/Dash-boop0/marketing-workflow-automation">Source on GitHub</a>
+        <a href="https://github.com/Dash-boop0/marketing-workflow-automation/blob/main/LICENSE">MIT licence</a>
+      </nav>
+      <p class="site-footer__note">Sample data is synthetic · Your data stays in this browser</p>
+    </div>
   </footer>
 
   <script type="module" src="src/app.js"></script>

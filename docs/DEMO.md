@@ -7,7 +7,7 @@ private window or press **Reset everything** first so the task board is empty.
 workflow cleans them, removes duplicates, categorises them with editable rules and creates follow-up tasks. All
 data here is synthetic and messaging is mocked – nothing is ever sent." Point at the banner.
 
-**0:15 – Input (20 s).** Click **Load sample leads**. The preview shows the raw rows: lower-case names, mixed date
+**0:15 – Input (20 s).** The app opens on Results with the sample already run; click the **Input** tab (or **Load sample leads** after *Start with your own data*). The preview shows the raw rows: lower-case names, mixed date
 formats, local phone numbers. Set **Run date** to 2026-10-20 so the numbers match the sample output. Click
 **Run workflow**.
 
